@@ -12,6 +12,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Promotions from "./components/Promotions/Promotions";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/promotions" element={<Promotions />} />
         <Route path="/news" element={<News />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />

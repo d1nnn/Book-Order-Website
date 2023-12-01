@@ -1,0 +1,8 @@
+.footer {
+  display: flex;
+  background-image: url("../../assets/Footer/logo192.png");
+}
+
+.test {
+  color: blueviolet;
+}

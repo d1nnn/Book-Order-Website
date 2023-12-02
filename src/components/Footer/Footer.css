@@ -1,8 +1,17 @@
 .footer {
   display: flex;
-  background-image: url("../../assets/Footer/logo192.png");
+  color: white;
+  background-color: #3a4059;
+  /* align-items: ; */
+  justify-content: space-evenly;
 }
 
-.test {
-  color: blueviolet;
+ul {
+  list-style-type: none;
+  & h5 {
+    border-bottom: 1px solid #c3c7d9;
+  }
+  & li {
+    font-size: 0.8em;
+  }
 }

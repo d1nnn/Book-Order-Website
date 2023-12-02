@@ -12,7 +12,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Promotions from "./components/Promotions/Promotions";
+import Promotions from "./pages/promotions/Promotions";
 
 function App() {
   return (

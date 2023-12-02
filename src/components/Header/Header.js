@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-bootstrap/Carousel";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -13,14 +14,30 @@ const Header = () => {
         <Container>
           <Navbar.Brand href="#">BaBook</Navbar.Brand>
           <Nav className="flex-grow-1 justify-content-around me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/products">Products</Nav.Link>
-            <Nav.Link href="/promotions">Promotions</Nav.Link>
-            <Nav.Link href="/news">News</Nav.Link>
-            <Nav.Link href="/about-us">AboutUs</Nav.Link>
-            <Nav.Link href="/contact">Contact</Nav.Link>
-            <Nav.Link href="/contact">Login</Nav.Link>
-            <Nav.Link href="/contact">Register</Nav.Link>
+            <Nav.Link as={Link} to="/">
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to="/products">
+              Products
+            </Nav.Link>
+            <Nav.Link as={Link} to="/news">
+              News
+            </Nav.Link>
+            <Nav.Link as={Link} to="/promotions">
+              Promotions
+            </Nav.Link>
+            <Nav.Link as={Link} to="/about-us">
+              AboutUs
+            </Nav.Link>
+            <Nav.Link as={Link} to="/contact">
+              Contact
+            </Nav.Link>
+            <Nav.Link as={Link} to="/login">
+              Login
+            </Nav.Link>
+            <Nav.Link as={Link} to="/register">
+              Register
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>

@@ -3,16 +3,15 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./Home.css";
 
 function Home() {
   return (
     <>
-      <div>Home</div>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
+      <h2>Also out this month</h2>
+      <h2>News</h2>
+      <h2>Available in hardback</h2>
+      <h2>The latest news </h2>
     </>
   );
 }

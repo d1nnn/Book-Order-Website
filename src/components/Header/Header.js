@@ -4,43 +4,54 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-bootstrap/Carousel";
+import "./Header.css";
 
 const Header = () => {
   return (
     <div>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#">Bookabook2</Navbar.Brand>
-          <Nav className="me-auto">
+          <Navbar.Brand href="#">BaBook</Navbar.Brand>
+          <Nav className="flex-grow-1 justify-content-around me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/products">Products</Nav.Link>
             <Nav.Link href="/promotions">Promotions</Nav.Link>
             <Nav.Link href="/news">News</Nav.Link>
             <Nav.Link href="/about-us">AboutUs</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
+            <Nav.Link href="/contact">Login</Nav.Link>
+            <Nav.Link href="/contact">Register</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
       <Carousel>
         <Carousel.Item>
-          <img className="" src={require("../../assets/book-banner.jpg")} />
+          <img
+            className="carousel_img"
+            src={require("../../assets/book-banner111.jpg")}
+          />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Welcome to BaBook!</h3>
+            <p>This is where you can get all the books that you want</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img className="" src={require("../../assets/book-banner1.jpg")} />
+          <img className="" src={require("../../assets/book-banner22.jpg")} />
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>Best books for you!</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              We guarrantee that you will have best quality books like no other
+              before
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="" src={require("../../assets/book-banner33.jpg")} />
+          <Carousel.Caption>
+            <h3>Lots of books!</h3>
+            <p>
+              BaBook's library contains all the world's most famous for you to
+              choose!
             </p>
           </Carousel.Caption>
         </Carousel.Item>

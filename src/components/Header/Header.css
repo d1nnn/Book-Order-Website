@@ -1,0 +1,14 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.carousel_img {
+  height: 80%;
+}
+
+.me-auto {
+  display: flex;
+  justify-content: space-evenly;
+}

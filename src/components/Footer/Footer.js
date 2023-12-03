@@ -1,12 +1,8 @@
 import React from "react";
 import "./Footer.css";
-import * as Icons from "react-feather";
 import "font-awesome/css/font-awesome.min.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "react-bootstrap";
 import {
   faFacebook,
   faYoutube,
@@ -16,10 +12,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
-  // const fb = Icons[facebook];
-  // const insta = Icons[instagram];
-  // const twitter = Icons[twitter];
-  // const youtube = Icons[youtube];
   return (
     <div className="footer">
       <ul>

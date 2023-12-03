@@ -9,10 +9,37 @@
 
 ul {
   list-style-type: none;
+  padding: 2em 0 2em 0;
+
   & h5 {
     border-bottom: 1px solid #c3c7d9;
   }
   & li {
     font-size: 0.8em;
+  }
+
+  .ul3 {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .youtube:hover {
+    color: red;
+  }
+
+  .github:hover {
+    color: grey;
+  }
+
+  .fb:hover {
+    color: #0765ff;
+  }
+
+  .twitter:hover {
+    color: #1c9bef;
+  }
+
+  .insta:hover {
+    color: pink;
   }
 }

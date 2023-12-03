@@ -1,7 +1,25 @@
 import React from "react";
 import "./Footer.css";
+import * as Icons from "react-feather";
+import "font-awesome/css/font-awesome.min.css";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import "react-bootstrap";
+import {
+  faFacebook,
+  faYoutube,
+  faGithub,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
+  // const fb = Icons[facebook];
+  // const insta = Icons[instagram];
+  // const twitter = Icons[twitter];
+  // const youtube = Icons[youtube];
   return (
     <div className="footer">
       <ul>
@@ -21,10 +39,23 @@ const Footer = () => {
       </ul>
       <ul>
         <h5>Follow us</h5>
-        <li>FB</li>
-        <li>Insta</li>
-        <li>Twitter</li>
-        <li>Youtube</li>
+        <FontAwesomeIcon icon={faFacebook} className="fb p-1"></FontAwesomeIcon>
+        <FontAwesomeIcon
+          icon={faInstagram}
+          className="insta p-1"
+        ></FontAwesomeIcon>
+        <FontAwesomeIcon
+          icon={faTwitter}
+          className="twitter p-1"
+        ></FontAwesomeIcon>
+        <FontAwesomeIcon
+          icon={faGithub}
+          className="github p-1"
+        ></FontAwesomeIcon>
+        <FontAwesomeIcon
+          icon={faYoutube}
+          className="youtube p-1"
+        ></FontAwesomeIcon>
       </ul>
     </div>
   );

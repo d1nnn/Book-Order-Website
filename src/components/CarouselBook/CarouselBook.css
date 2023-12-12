@@ -1,0 +1,62 @@
+.trustedMechCarousel {
+  width: 100%;
+  height: 100%;
+}
+
+.carouselCont {
+  background-color: #f1f2ed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ImgCont {
+  float: left;
+  width: 50%;
+  /* padding: 10em; */
+}
+
+.TextCont {
+  padding: 1%;
+  position: relative;
+  height: 50%;
+  right: 4%;
+  width: 50%;
+  font-size: 25px;
+}
+
+/* .carousel-caption {
+  position: relative;
+  top: 0;
+  height: 100%;
+  width: 75%;
+} */
+
+.TextCont p {
+  color: black;
+}
+
+.TextCont h3 {
+  color: black;
+}
+
+/* .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after {
+  content: ">";
+  font-size: 55px;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: "<";
+  font-size: 55px;
+  color: white;
+} */

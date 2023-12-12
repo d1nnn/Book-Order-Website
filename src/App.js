@@ -15,6 +15,9 @@ import Footer from "./components/Footer/Footer";
 import Promotions from "./pages/promotions/Promotions";
 import Banner from "./components/Banner/Banner";
 import ProductsCarousel from "./components/ProductsCarousel/ProductsCarousel";
+import CarouselBook from "./components/CarouselBook/CarouselBook";
+import Authors from "./pages/authors/Authors";
+import Cart from "./pages/cart/Cart";
 
 function App() {
   return (
@@ -28,6 +31,8 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/authors" element={<Authors />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </div>

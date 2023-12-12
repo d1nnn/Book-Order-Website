@@ -56,7 +56,7 @@ const Header = () => {
               </Form>
             </Nav>
             <Nav>
-              <Nav.Link as={Link} to="/Cart">
+              <Nav.Link as={Link} to="/cart">
                 {" "}
                 <FontAwesomeIcon
                   icon={faCartShopping}

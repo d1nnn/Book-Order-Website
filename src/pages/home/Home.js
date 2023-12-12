@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
 import ProductsCarousel from "../../components/ProductsCarousel/ProductsCarousel";
+import CarouselBook from "../../components/CarouselBook/CarouselBook";
 
 function Home() {
   return (
@@ -12,7 +13,7 @@ function Home() {
       <div className="otm">
         <h2>Also out this month</h2>
       </div>
-      <ProductsCarousel />
+      <CarouselBook />
       <h2>News</h2>
       <h2>Available in hardback</h2>
       <h2>The latest news </h2>

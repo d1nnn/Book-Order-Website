@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
 import ProductsCarousel from "../../components/ProductsCarousel/ProductsCarousel";
 import CarouselBook from "../../components/CarouselBook/CarouselBook";
+import NewsCarousel from "../../components/NewsCarousel/NewsCarousel";
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       </div>
       <CarouselBook />
       <h2>News</h2>
+      <NewsCarousel />
       <h2>Available in hardback</h2>
       <h2>The latest news </h2>
     </div>

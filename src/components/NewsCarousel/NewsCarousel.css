@@ -1,0 +1,10 @@
+.news_carousel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+
+/* .card {
+  /* padding: 1em; */
+/* margin: 0 2em 0 2em;
+}*/

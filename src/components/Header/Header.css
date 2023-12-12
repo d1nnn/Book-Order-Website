@@ -12,3 +12,12 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.otm {
+  margin: 1em;
+  /* background-color: #f5f6fa; */
+}
+
+.cartShopping {
+  color: white;
+}

@@ -13,11 +13,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Promotions from "./pages/promotions/Promotions";
+import Banner from "./components/Banner/Banner";
+import ProductsCarousel from "./components/ProductsCarousel/ProductsCarousel";
 
 function App() {
   return (
     <div>
       <Header />
+      <Banner />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />

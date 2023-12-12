@@ -6,7 +6,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-bootstrap/Carousel";
 import "./Header.css";
 import { Link } from "react-router-dom";
-
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCart } from "@fortawesome/free-brands-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
   return (
     <div>
@@ -23,6 +27,9 @@ const Header = () => {
               <Nav.Link as={Link} to="/products">
                 Products
               </Nav.Link>
+              <Nav.Link as={Link} to="/authors">
+                Authors
+              </Nav.Link>
               <Nav.Link as={Link} to="/news">
                 News
               </Nav.Link>
@@ -30,13 +37,32 @@ const Header = () => {
                 Promotions
               </Nav.Link>
               <Nav.Link as={Link} to="/about-us">
-                AboutUs
+                About-us
               </Nav.Link>
               <Nav.Link as={Link} to="/contact">
                 Contact
               </Nav.Link>
             </Nav>
             <Nav>
+              {" "}
+              <Form className="d-flex">
+                <Form.Control
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                />
+                <Button variant="outline-success">Search</Button>
+              </Form>
+            </Nav>
+            <Nav>
+              <Nav.Link as={Link} to="/Cart">
+                {" "}
+                <FontAwesomeIcon
+                  icon={faCartShopping}
+                  className="cartShopping p-1"
+                />
+              </Nav.Link>
               <Nav.Link as={Link} to="/login">
                 Login
               </Nav.Link>
@@ -47,38 +73,6 @@ const Header = () => {
           </Nav>
         </Container>
       </Navbar>
-      <Carousel>
-        <Carousel.Item>
-          <img
-            className="carousel_img"
-            src={require("../../assets/book-banner111.jpg")}
-          />
-          <Carousel.Caption>
-            <h3>Welcome to BaBook!</h3>
-            <p>This is where you can get all the books that you want</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="" src={require("../../assets/book-banner22.jpg")} />
-          <Carousel.Caption>
-            <h3>Best books for you!</h3>
-            <p>
-              We guarrantee that you will have best quality books like no other
-              before
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="" src={require("../../assets/book-banner33.jpg")} />
-          <Carousel.Caption>
-            <h3>Lots of books!</h3>
-            <p>
-              BaBook's library contains all the world's most famous for you to
-              choose!
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
     </div>
   );
 };

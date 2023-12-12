@@ -1,0 +1,21 @@
+.book1 {
+  padding: 3em 15em 3em 15em;
+}
+
+.book11 {
+  display: flex;
+}
+
+.book2 {
+  /* height: 500px;
+  width: 27%; */
+  padding: 3em 15em 3em 15em;
+}
+
+.book3 {
+  padding: 3em 15em 3em 15em;
+}
+
+.carousel {
+  background-color: #f5f6fa;
+}

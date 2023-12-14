@@ -62,7 +62,7 @@ import "./NewsCarousel.css";
 
 const NewsCarousel = () => {
   return (
-    <div className="news_carousel p-3">
+    <div className="news_carousel">
       <Card className="card" style={{ width: "18rem" }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>

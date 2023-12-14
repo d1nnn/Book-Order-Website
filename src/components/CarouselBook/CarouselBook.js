@@ -10,22 +10,25 @@ import "./CarouselBook.css";
 
 const items = [
   {
-    src: "../../assets/aColdSpell.jpeg",
+    src: "./assets/aColdSpell.jpeg",
     altText: "Image alt Text",
-    header: "Heading",
-    caption: "Content here",
+    header: "A Cold Spell",
+    caption:
+      "Ice has confounded, delighted and fascinated us since the first sparks of art and culture in Europe and it now underpins the modern world. Without ice, we would not feed ourselves or heal our sick as we do, and our towns and cities, countryside and oceans would look very different. Science would not have progressed along the avenues it did and our galleries and libraries would be missing many masterpieces.",
   },
   {
-    src: "../../assets/Held.jpeg",
+    src: "./assets/Held.jpeg",
     altText: "Image alt Text",
-    header: "Heading",
-    caption: "Content here",
+    header: "Held",
+    caption:
+      "1917. On a battlefield near the River Escaut, John lies in the aftermath of a blast, unable to move or feel his legs. Struggling to focus his thoughts, he is lost to memory – a chance encounter in a pub by a railway, a hot bath with his lover on a winter night, his childhood on a faraway coast – as the snow falls.",
   },
   {
-    src: "../../assets/theRestIsHistory2.jpeg",
+    src: "./assets/theRestIsHistory2.jpeg",
     altText: "Image alt Text",
-    header: "Heading",
-    caption: "Content here",
+    header: "The Rest is History",
+    caption:
+      "From the chart-topping podcast The Rest is History, a whistle-stop tour through the past – from Alexander the Great to Tolkien, the Wars of the Roses to Watergate. The nation's favourite historians Tom Holland and Dominic Sandbrook take on the most curious moments in history, answering the questions we didn't even think to ask:",
   },
 ];
 
@@ -76,7 +79,7 @@ class CarouselBook extends Component {
 
   render() {
     const { activeIndex } = this.state;
-    const slides = items.map((item) => {
+    const slides = items.map((item, i) => {
       return (
         <CarouselItem
           onExiting={this.onExiting}
@@ -87,7 +90,7 @@ class CarouselBook extends Component {
             <div className="ImgCont">
               <img
                 width="100%"
-                src={require("../../assets/theRestIsHistory2.jpeg")}
+                src={require(`${item.src}`)}
                 alt={item.altText}
               />
             </div>

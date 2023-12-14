@@ -8,29 +8,29 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  /* height: 25%; */
 }
 
 .ImgCont {
-  float: left;
-  width: 50%;
+  /* float: left; */
+  width: 45%;
+  height: 45%;
   /* padding: 10em; */
 }
 
 .TextCont {
-  padding: 1%;
+  padding: 5em;
   position: relative;
   height: 50%;
-  right: 4%;
   width: 50%;
-  font-size: 25px;
 }
 
-/* .carousel-caption {
-  position: relative;
-  top: 0;
-  height: 100%;
-  width: 75%;
-} */
+/* .carousel-caption { 
+  /* position: relative; */
+/* top: 0; */
+/* height: 100%; */
+/* width: 75%; 
+}*/
 
 .TextCont p {
   color: black;

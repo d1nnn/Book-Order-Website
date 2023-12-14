@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,8 +7,9 @@ import "./Home.css";
 import ProductsCarousel from "../../components/ProductsCarousel/ProductsCarousel";
 import CarouselBook from "../../components/CarouselBook/CarouselBook";
 import NewsCarousel from "../../components/NewsCarousel/NewsCarousel";
+import BookDataService from "../../services/BookDataService";
 
-function Home() {
+const Home = () => {
   return (
     <div>
       <section class="aboutUs">
@@ -56,6 +57,6 @@ function Home() {
       <NewsCarousel />
     </div>
   );
-}
+};
 
 export default Home;

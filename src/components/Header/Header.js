@@ -10,7 +10,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faCart } from "@fortawesome/free-brands-svg-icons";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
   return (
     <div>
@@ -56,6 +56,9 @@ const Header = () => {
               </Form>
             </Nav>
             <Nav>
+              <Nav.Link as={Link} to="/wishlist">
+                <FontAwesomeIcon icon={faHeart} />
+              </Nav.Link>
               <Nav.Link as={Link} to="/cart">
                 {" "}
                 <FontAwesomeIcon

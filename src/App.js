@@ -19,6 +19,7 @@ import CarouselBook from "./components/CarouselBook/CarouselBook";
 import Authors from "./pages/authors/Authors";
 import Cart from "./pages/cart/Cart";
 import Page404 from "./pages/page404/Page404";
+import WishList from "./pages/wishlist/WishList";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/authors" element={<Authors />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<WishList />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />

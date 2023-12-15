@@ -31,9 +31,11 @@ const Authors = (props) => {
           </div>
           <div className="author_content">
             <h1>{author.name}</h1>
+
             <h2>{author.authorOf}</h2>
+
             <p dangerouslySetInnerHTML={{ __html: author.biography }} />
-            {/* <p>{author.category}</p> */}
+            <p>Categories: {author.category}</p>
           </div>
         </div>
       )}

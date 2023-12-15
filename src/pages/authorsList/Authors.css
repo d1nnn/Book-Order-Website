@@ -9,32 +9,29 @@ h1 {
   margin: 1em 0 0 0;
 }
 
-.sanpham {
-  padding: 0em 12em;
+.authors_container {
+  padding: 5em 8em;
   display: flex;
   margin-bottom: 2em;
-  .sanpham_left {
+  .authors_list {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 4em;
+    gap: 2em;
     & img {
-      height: 75%;
+      height: 85%;
       width: 100%;
-      /* border-radius: 2em; */
+      border-radius: 2em;
     }
     & img:hover {
-      border: 2px solid #3a4059;
+      /* border: 2px solid #3a4059; */
       transition: all 0.2s;
-      opacity: 0.85;
+      opacity: 0.8;
     }
     & p {
       text-align: center;
       margin: 0em 0em 0em 0em;
     }
-  }
-  .sanpham_right {
-    margin: 0em 0em 0em 1em;
   }
 }
 
@@ -52,4 +49,9 @@ h1 {
   & input::placeholder {
     text-align: center;
   }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

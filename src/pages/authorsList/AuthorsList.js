@@ -28,15 +28,15 @@ const AuthorsList = () => {
   return (
     <div>
       {loading && <Loading />}
-      <section className="sanpham">
-        <div className="sanpham_left" id="spl">
+      <section className="authors_container">
+        <div className="authors_list">
           {authors.map((author, i) => {
             return (
-              <div key={i} className="sanpham_item">
+              <div key={i} className="authors">
                 <NavLink to={`${author._id}`}>
                   <img src={`${author.imageUrl}`} alt="" />
-                  <p>{author.name}</p>
-                  <p>Category: {author.category}</p>
+                  <h2>{author.name}</h2>
+                  {/* <p>Category: {author.category}</p> */}
                 </NavLink>
               </div>
             );

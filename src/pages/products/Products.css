@@ -1,0 +1,13 @@
+.products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & .products_img {
+    padding: 2em;
+    height: 100%;
+    width: 100%;
+  }
+  & .products_content {
+    padding: 2em;
+  }
+}

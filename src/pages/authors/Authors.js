@@ -29,8 +29,8 @@ const Authors = (props) => {
           <img src={`${author.imageUrl}`}></img>
           <p>{author.name}</p>
           <p>{author.authorOf}</p>
-          {author.biography}
-          {author.category}
+          <p>{author.biography}</p>
+          <p>{author.category}</p>
         </div>
       )}
     </div>

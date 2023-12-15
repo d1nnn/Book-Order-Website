@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from "react";
-import "./Products.css";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import BookDataService from "../../services/BookDataService";
-import Loading from "../../components/Loading/Loading";
+import { useParams } from "react-router-dom";
 
 const Products = () => {
+  const params = useParams();
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    retrieveProducts();
-  }, []);
+    getProducts(params.id);
+  }, [params.id]);
 
-  const retrieveProducts = () => {
-    setLoading(true);
-    BookDataService.getAllProducts()
+  const getProducts = (id) => {
+    BookDataService.getProductsById(id)
       .then((res) => {
+        console.log(res.data);
         setProducts(res.data);
-        setLoading(false);
       })
       .catch((e) => {
         console.log(e);
@@ -26,25 +23,13 @@ const Products = () => {
 
   return (
     <div>
-      {loading && <Loading />}
-      <h1 className="chonmon">Pick your books!</h1>
-      <div className="searchbar">
-        <input type="search" placeholder="Tìm kiếm" id="searchbar" />
-      </div>
-      <section className="sanpham">
-        <div className="sanpham_left" id="spl">
-          {products.map((product, i) => {
-            return (
-              <div key={i} className="sanpham_item">
-                <NavLink to={`detail/${product._id}`}>
-                  <img src={`${product.imageUrl}`} alt="" />
-                  <p>{product.name}</p>
-                </NavLink>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      <p>{products.name}</p>
+      <p>{products.category}</p>
+      <p>{products.Education}</p>
+      <p>{products.description}</p>
+      {/* <p>{products.file.path}</p> */}
+      <p>{products.price}</p>
+      <p>{products.toc}</p>
     </div>
   );
 };

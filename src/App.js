@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Products from "./pages/products/Products";
+import ProductsList from "./pages/productsList/ProductsList";
 import News from "./pages/news/News";
 import AboutUs from "./pages/about-us/AboutUs";
 import Contact from "./pages/contact/Contact";
@@ -23,6 +23,7 @@ import WishList from "./pages/wishlist/WishList";
 import Loading from "./components/Loading/Loading";
 import { useState, useEffect } from "react";
 import Authors from "./pages/authors/Authors";
+import Products from "./pages/products/Products";
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
       <Banner />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/products" element={<ProductsList />} />
+        <Route path="/products/:id" element={<Products />} />
         <Route path="/promotions" element={<Promotions />} />
         <Route path="/news" element={<News />} />
         <Route path="/about-us" element={<AboutUs />} />

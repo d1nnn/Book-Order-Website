@@ -36,3 +36,104 @@
     transform: rotate(360deg);
   }
 }
+
+@text-color :#474d66;
+@text-color-sub :#7180C7;
+@background-gray: #f5f6fa;
+@button-color: #575f80;
+@card-color: #F5F6FA;
+
+.contact-us {
+  .banner-title {
+      text-align: center;
+      padding: 4rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: background-gray;
+  }
+  .breadcrumb {
+      text-align: center;
+      font-size: 14px;
+
+      li {
+          i {
+              color: text-color
+          }
+          span {
+              color: text-color-sub
+          }
+          a {
+              color: text-color;
+              text-decoration: none;
+              transition: .3s;
+
+              &:hover {
+                  color: text-color-sub
+              }
+          }
+      }
+  }
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  span, a {
+      font-size: 14px;
+      color: text-color;
+      text-decoration: none;
+      transition: .3s;
+      vertical-align: middle;
+      &:hover {
+          color: text-color-sub
+      }
+  }
+  i {
+      color: text-color-sub;
+      border: 1px solid text-color-sub;
+      border-radius: 100%;
+      min-width: 30px;
+      height: 30px;
+      position: relative;
+      margin-right: 10px;
+
+      &::before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 14px
+      }
+  }
+}
+
+.contact-form {
+  .form-control {
+      border-radius: 1000px;
+      font-size: 15px;
+      color: text-color;
+      padding: 10px 16px;
+      box-shadow: none;
+  }
+  textarea {
+      border-radius: 30px !important;
+      &:focus {
+          box-shadow: none;
+      }
+  }
+
+  .btn-primary {
+      border-radius: 1000px;
+      font-size: 14px;
+      padding: .8rem 2.5rem;
+  }
+}
+
+.btn-primary {
+  background-color: button-color;
+  border-color: button-color;
+  &:hover {
+      opacity: .7;
+  }
+}

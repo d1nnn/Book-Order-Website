@@ -20,8 +20,16 @@ import Authors from "./pages/authors/Authors";
 import Cart from "./pages/cart/Cart";
 import Page404 from "./pages/page404/Page404";
 import WishList from "./pages/wishlist/WishList";
+import Loading from "./components/Loading/Loading";
+import { useState, useEffect } from "react";
+// import Loading from "./components/Loading/Loading";
 
 function App() {
+  // const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    // setLoading(true);
+    <Loading />;
+  }, []);
   return (
     <div>
       <Header />
@@ -37,6 +45,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<WishList />} />
         <Route path="*" element={<Page404 />} />
+        <Route path="loading" element={<Loading />} />
       </Routes>
       <Footer />
     </div>

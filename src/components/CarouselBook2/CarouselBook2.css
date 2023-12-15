@@ -11,26 +11,18 @@
   /* height: 25%; */
 }
 
-.img {
+.ImgCont {
   /* float: left; */
-  width: 25%;
-  height: 25%;
-  padding: 1em 0 1em 1em;
-  margin: 0 0 0 10em;
+  width: 45%;
+  height: 45%;
   /* padding: 10em; */
 }
 
-.textCont {
-  padding: 10em;
+.TextCont {
+  padding: 5em;
   position: relative;
   height: 50%;
   width: 50%;
-  & p {
-    color: black;
-  }
-  & h3 {
-    color: black;
-  }
 }
 
 /* .carousel-caption { 
@@ -39,6 +31,14 @@
 /* height: 100%; */
 /* width: 75%; 
 }*/
+
+.TextCont p {
+  color: black;
+}
+
+.TextCont h3 {
+  color: black;
+}
 
 /* .carousel-control-prev-icon,
 .carousel-control-next-icon {

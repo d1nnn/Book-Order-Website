@@ -5,9 +5,10 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
 import ProductsCarousel from "../../components/ProductsCarousel/ProductsCarousel";
-import CarouselBook from "../../components/CarouselBook/CarouselBook";
+import CarouselBook2 from "../../components/CarouselBook2/CarouselBook2";
 import NewsCarousel from "../../components/NewsCarousel/NewsCarousel";
 import BookDataService from "../../services/BookDataService";
+import CarouselBook from "../../components/CarouselBook/CarouselBook";
 
 const Home = () => {
   return (

@@ -4,16 +4,20 @@ import "./Banner.css";
 const Banner = () => {
   return (
     <div>
-      <Carousel>
+      <Carousel className="crs">
         <Carousel.Item>
-          <img
-            className="carousel_img"
-            src={require("../../assets/book-banner111.jpg")}
-          />
-          <Carousel.Caption>
-            <h3>Welcome to BaBook!</h3>
-            <p>This is where you can get all the books that you want</p>
-          </Carousel.Caption>
+          <div className="crs_img">
+            <img
+              className="carousel_img"
+              src={require("../../assets/book-banner111.jpg")}
+            />
+          </div>
+          <div className="crs_caption">
+            <Carousel.Caption className="caption">
+              <h3>Welcome to BaBook!</h3>
+              <p>This is where you can get all the books that you want</p>
+            </Carousel.Caption>
+          </div>
         </Carousel.Item>
         <Carousel.Item>
           <img className="" src={require("../../assets/book-banner22.jpg")} />

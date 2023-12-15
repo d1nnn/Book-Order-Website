@@ -6,7 +6,7 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from "reactstrap";
-import "./CarouselBook.css";
+import "./CarouselBook2.css";
 
 const items = [
   {
@@ -87,14 +87,14 @@ class CarouselBook extends Component {
           key={item.src}
         >
           <div className="carouselCont">
-            <div className="img">
+            <div className="ImgCont">
               <img
                 width="100%"
                 src={require(`${item.src}`)}
                 alt={item.altText}
               />
             </div>
-            <div className="textCont">
+            <div className="TextCont">
               <CarouselCaption
                 captionHeader={item.header}
                 captionText={item.caption}
@@ -134,5 +134,11 @@ class CarouselBook extends Component {
     );
   }
 }
+
+//   export default CarouselExample ;
+
+// const CarouselBook = () => {
+//   return <div></div>;
+// };
 
 export default CarouselBook;

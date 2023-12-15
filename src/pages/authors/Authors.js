@@ -1,47 +1,38 @@
-import React, { useState, useEffect } from "react";
-import "./Authors.css";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from "react";
 import BookDataService from "../../services/BookDataService";
-import Loading from "../../components/Loading/Loading";
-const Authors = () => {
-  const [authors, setAuthors] = useState([]);
-  const [loading, setLoading] = useState(false);
+import { Outlet, useParams } from "react-router-dom";
+
+const Authors = (props) => {
+  const params = useParams();
+  //   console.log(params.id);
+  const [author, setAuthor] = useState();
 
   useEffect(() => {
-    retrieveAuthors();
-  }, []);
-  const retrieveAuthors = () => {
-    setLoading(true);
-    BookDataService.getAllAuthors()
+    getAuthor(params.id);
+  }, [params.id]);
+
+  const getAuthor = (id) => {
+    BookDataService.getAuthorsById(id)
       .then((res) => {
-        // console.log(res.data);
-        setAuthors(res.data);
-        setLoading(false);
+        console.log(res.data);
+        setAuthor(res.data);
       })
       .catch((e) => {
         console.log(e);
       });
   };
 
-  console.log(authors);
   return (
     <div>
-      {loading && <Loading />}
-      <section className="sanpham">
-        <div className="sanpham_left" id="spl">
-          {authors.map((author, i) => {
-            return (
-              <div key={i} className="sanpham_item">
-                <NavLink to={`detail/${author._id}`}>
-                  <img src={`${author.imageUrl}`} alt="" />
-                  <p>{author.name}</p>
-                  <p>Category: {author.category}</p>
-                </NavLink>
-              </div>
-            );
-          })}
+      {author && (
+        <div>
+          <img src={`${author.imageUrl}`}></img>
+          <p>{author.name}</p>
+          <p>{author.authorOf}</p>
+          {author.biography}
+          {author.category}
         </div>
-      </section>
+      )}
     </div>
   );
 };

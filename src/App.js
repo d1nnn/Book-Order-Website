@@ -16,20 +16,15 @@ import Promotions from "./pages/promotions/Promotions";
 import Banner from "./components/Banner/Banner";
 import ProductsCarousel from "./components/ProductsCarousel/ProductsCarousel";
 import CarouselBook from "./components/CarouselBook/CarouselBook";
-import Authors from "./pages/authors/Authors";
+import AuthorsList from "./pages/authorsList/AuthorsList";
 import Cart from "./pages/cart/Cart";
 import Page404 from "./pages/page404/Page404";
 import WishList from "./pages/wishlist/WishList";
 import Loading from "./components/Loading/Loading";
 import { useState, useEffect } from "react";
-// import Loading from "./components/Loading/Loading";
+import Authors from "./pages/authors/Authors";
 
 function App() {
-  // const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    // setLoading(true);
-    <Loading />;
-  }, []);
   return (
     <div>
       <Header />
@@ -41,7 +36,8 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/authors" element={<Authors />} />
+        <Route path="/authors" element={<AuthorsList />}></Route>
+        <Route path="/authors/:id" element={<Authors />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<WishList />} />
         <Route path="*" element={<Page404 />} />

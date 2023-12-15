@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCart } from "@fortawesome/free-brands-svg-icons";
 import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
   return (
@@ -45,7 +44,7 @@ const Header = () => {
             </Nav>
             <Nav>
               {" "}
-              <Form className="d-flex">
+              {/* <Form className="d-flex">
                 <Form.Control
                   type="search"
                   placeholder="Search"
@@ -53,7 +52,7 @@ const Header = () => {
                   aria-label="Search"
                 />
                 <Button variant="outline-success">Search</Button>
-              </Form>
+              </Form> */}
             </Nav>
             <Nav>
               <Nav.Link as={Link} to="/wishlist">

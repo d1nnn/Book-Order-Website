@@ -23,13 +23,13 @@ const Products = () => {
 
   return (
     <div>
+      <img src={require("../../assets/Held.jpeg")}></img>
       <p>{products.name}</p>
       <p>{products.category}</p>
       <p>{products.Education}</p>
-      <p>{products.description}</p>
-      {/* <p>{products.file.path}</p> */}
-      <p>{products.price}</p>
-      <p>{products.toc}</p>
+      <div dangerouslySetInnerHTML={{ __html: products.description }} />
+      <p>Price: {products.price}</p>
+      <div dangerouslySetInnerHTML={{ __html: products.toc }} />
     </div>
   );
 };

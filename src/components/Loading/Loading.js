@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "lottie-react";
-import * as loadingAnimation from "../../assets/animation/loadingAnimation.json";
+import * as loadingAnimation from "../../assets/animation/loadingAnimation2.json";
 
 const defaultOptions = {
   loop: true,

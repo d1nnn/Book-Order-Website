@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BookDataService from "../../services/BookDataService";
-import { Button } from "antd";
+import { Button, Input } from "antd";
 import "./Cart.css";
 
 const Cart = () => {
@@ -47,8 +47,12 @@ const Cart = () => {
         })}
       </div>
       <div className="btn1">
+        <h5>Promotion Code</h5>
+
+        <Input className="inp"></Input>
+
         <Button type="primary" size="large">
-          Order
+          Proceed To Order
         </Button>
       </div>
       {/* <p>Total amount: {totalAmount}</p> */}

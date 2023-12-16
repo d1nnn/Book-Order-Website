@@ -11,3 +11,8 @@
     padding: 2em;
   }
 }
+
+Button {
+  margin: 0 1em 0 0;
+  size: 5em;
+}

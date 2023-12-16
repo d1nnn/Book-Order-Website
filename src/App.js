@@ -38,7 +38,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/authors" element={<AuthorsList />}></Route>
+        <Route path="/authors" element={<AuthorsList />} />
         <Route path="/authors/:id" element={<Authors />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<WishList />} />

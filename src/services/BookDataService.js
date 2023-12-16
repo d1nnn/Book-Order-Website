@@ -50,17 +50,19 @@ export const BookDataService = {
     });
   },
   getWishList: () => {
-    return axios.get(`http://35.187.239.47:8080/`, {
+    return axios.get(`http://35.187.239.47:8080/wishlist`, {
       headers: { "Session-ID": "123456789abcdef" },
     });
   },
   getCart: () => {
-    return axios.get(`http://35.187.239.47:8080/`, {
-      headers: { "Session-ID": "123456789abcdef" },
+    const tokenStr =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTcxZTM0NmU3MDQ0NDA2OGZjM2YwOWYiLCJpYXQiOjE3MDI3NDE2OTgsImV4cCI6MTcwMjgyODA5OH0.Qyoh5KUAYVrH_gzH9cvpbFo3UFoLMb6ASRVeq24ogUg";
+    return axios.get(`http://35.187.239.47:8080/carts`, {
+      headers: { Authorization: `Bearer ${tokenStr}` },
     });
   },
   getOrders: () => {
-    return axios.get(`http://35.187.239.47:8080/`, {
+    return axios.get(`http://35.187.239.47:8080/orders`, {
       headers: { "Session-ID": "123456789abcdef" },
     });
   },

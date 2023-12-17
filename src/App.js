@@ -25,6 +25,7 @@ import { useState, useEffect } from "react";
 import Authors from "./pages/authors/Authors";
 import Products from "./pages/products/Products";
 import Login from "./pages/login/Login";
+import Orders from "./pages/orders/Orders";
 
 function App() {
   return (
@@ -36,7 +37,7 @@ function App() {
         <Route path="/products" element={<ProductsList />} />
         <Route path="/products/:id" element={<Products />} />
         <Route path="/promotions" element={<Promotions />} />
-        <Route path="/news" element={<News />} />
+        <Route path="/orders" element={<Orders />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/authors" element={<AuthorsList />} />

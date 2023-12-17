@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import BookDataService from "../../services/BookDataService";
 import { Button, Input } from "antd";
 import "./Cart.css";
 
 const Cart = () => {
   const [carts, setCarts] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
+  // const [totalAmount, setTotalAmount] = useState(0);
+  let [tA, setTa] = useState(0);
+  let totalAmount = useRef(0);
+
   useEffect(() => {
     retrieveCart();
+    // setTa((tA += Number(totalAmount.current.innerText)));
   }, []);
-
+  // let total = 0;
   const retrieveCart = () => {
     BookDataService.getCart()
       .then((res) => {
@@ -21,12 +25,26 @@ const Cart = () => {
       });
   };
 
-  // setTotalAmount(
-  //   carts.reduce((total, cart) => {
-  //     if (carts.product) return total + cart.product.price;
-  //     return total;
-  //   }, 0)
-  // );
+  const calSum = () => {
+    // setTa((tA += Number(totalAmount.current.innerText)));
+    console.log(totalAmount);
+  };
+  // setTa(tA + Number(totalAmount.current.innerText));
+
+  // for (var i = 0; i < carts.length; i++) {
+  //   total += carts[i].product.price;
+  // }
+  // console.log(total);
+
+  // var prices = carts.map((p) => {
+  //   p.product.price;
+  // });
+  // console.log(prices)
+
+  // let x = carts.reduce((total, cart) => {
+  //   return total + cart.product.price;
+  // }, 0);
+  // console.log(x);
 
   {
     carts.length == 0 && <div>No items are added</div>;
@@ -71,7 +89,7 @@ const Cart = () => {
                     {cart.product && (
                       <tr key={cart.product.id}>
                         <td>{cart.product.name}</td>
-                        <td>{cart.product.price}$</td>
+                        <td ref={totalAmount}>{cart.product.price}</td>
                         <td>
                           <img className="wlimg" src={cart.product.imageUrl} />
                         </td>
@@ -92,8 +110,11 @@ const Cart = () => {
         </div>
       </div>
       {/* <div className="row">
+        <button className="btn btn-primary" onClick={calSum}>
+          Cal Sum
+        </button>
         <div className="col-12">
-          <h2>Total: {totalAmount}</h2>
+          <h2>Total: {tA}</h2>
         </div>
       </div> */}
     </>

@@ -34,6 +34,14 @@ const Products = () => {
     console.log("btn clicked");
   };
 
+  const postCarts = () => {
+    var data = {
+      product: params.id,
+    };
+    BookDataService.postCarts(data);
+    console.log(data);
+  };
+
   const downLoad = (e) => {};
   const url111 =
     "https://storage.googleapis.com/bookstore-ff5f4.appspot.com/Children/001-HIDE-AND-SEEK-Free-Childrens-Book-By-Monkey-Pen.pdf?GoogleAccessId=firebase-adminsdk-54f1p%40bookstore-ff5f4.iam.gserviceaccount.com&Expires=1702722857&Signature=G71nYwC363tmXdwzDFmenIv56nNzXTMQD4SaDRDcy5fPHgwtHGEVkIV5IoRM9JMBz3PgDdcIUiSsDiCzeOnodFaIAlUBTZxA8qV7mk2j1yMCes882VM9rejywfWwCxv1qauEDRdot6VGnWUDsEJ0leTNIY%2F8JCIaccot6nj1mlxsPyt80iIXOeLGlQWnPZjU%2BcOKIbSUZa63v0Z907RW98ejQZcq6uCJfubVC3G9ZR%2B1Ry7mwGXYvQ8T6S4tnU0KDsQMmvsOttUZ38XTB4wJuQcRRgmLLpwZN%2BpXz4EDf0ZsDvBQdZFt8sm5qofMNDLax2DUQKQBZQJtVsQEtrClgw%3D%3D";
@@ -58,7 +66,7 @@ const Products = () => {
         <div class="btnantd">
           <Button
             type="primary"
-            onClick={btnClick}
+            onClick={postCarts}
             icon={<ShoppingCartOutlined />}
             size="large"
           >

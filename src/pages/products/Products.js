@@ -30,8 +30,12 @@ const Products = () => {
       });
   };
 
-  const btnClick = (e) => {
-    console.log("btn clicked");
+  const postWishList = () => {
+    var data = {
+      product: params.id,
+    };
+    BookDataService.postWishList(data);
+    console.log(data);
   };
 
   const postCarts = () => {
@@ -74,7 +78,7 @@ const Products = () => {
           </Button>
           <Button
             type="default"
-            onClick={btnClick}
+            onClick={postWishList}
             icon={<HeartOutlined />}
             size="large"
           >

@@ -1,0 +1,79 @@
+h2 {
+    font-family: "TiemposHeadline";
+    font-weight: 600;
+}
+
+.login-main {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+
+}
+
+.login-input {
+    border-color: #bec4de;
+    border-style: solid;
+}
+
+.detailArea {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.collapse-area {
+    background-color: #f5f6fa;
+    border-color: #bec4de;
+    border-style: solid;
+}
+
+.collapse-header {
+    background-color: white;
+    border: none;
+    color: #3c3e54;
+    text-decoration: none;
+    width: 100%;
+    text-align: left;
+    padding: 5%;
+    font-size: 20px;
+    font-family: "TiemposText", serif;
+    line-height: 28px;
+    margin-bottom: 0;
+    border-color: #bec4de;
+    border-style: solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.collapse-body {
+    background-color: #f5f6fa;
+    border: none;
+    color: #3c3e53;
+    text-decoration: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.submit {
+    background-color: #262e51;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 10px;
+    width: 100%;
+    margin: 5;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}

@@ -10,20 +10,24 @@ import {
   DownloadOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import Loading from "../../components/Loading/Loading";
 
 const Products = () => {
   const params = useParams();
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getProducts(params.id);
   }, [params.id]);
 
   const getProducts = (id) => {
+    setLoading(true);
     BookDataService.getProductsById(id)
       .then((res) => {
         console.log(res.data);
         setProducts(res.data);
+        setLoading(false);
       })
       .catch((e) => {
         console.log(e);
@@ -65,48 +69,54 @@ const Products = () => {
   // };
 
   return (
-    <div className="products">
-      <div className="products_img">
-        <img src={products.imageUrl} />
-      </div>
-      <div className="products_content">
-        <h1>{products.name}</h1>
-        <h2>{products.category}</h2>
-        {/* <h3>{products.Education}</h3> */}
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="products">
+          <div className="products_img">
+            <img src={products.imageUrl} />
+          </div>
+          <div className="products_content">
+            <h1>{products.name}</h1>
+            <h2>{products.category}</h2>
+            {/* <h3>{products.Education}</h3> */}
 
-        <div
-          className="des"
-          dangerouslySetInnerHTML={{ __html: products.description }}
-        />
-        <p>
-          <b>Price:</b> {products.price}
-        </p>
-        <div class="btnantd">
-          <Button
-            type="primary"
-            onClick={postCarts}
-            icon={<ShoppingCartOutlined />}
-            size="large"
-          >
-            Add to Cart
-          </Button>
-          <Button
-            type="default"
-            onClick={postWishList}
-            icon={<HeartOutlined />}
-            size="large"
-          >
-            Add to WishList
-          </Button>
+            <div
+              className="des"
+              dangerouslySetInnerHTML={{ __html: products.description }}
+            />
+            <p>
+              <b>Price:</b> {products.price}
+            </p>
+            <div class="btnantd">
+              <Button
+                type="primary"
+                onClick={postCarts}
+                icon={<ShoppingCartOutlined />}
+                size="large"
+              >
+                Add to Cart
+              </Button>
+              <Button
+                type="default"
+                onClick={postWishList}
+                icon={<HeartOutlined />}
+                size="large"
+              >
+                Add to WishList
+              </Button>
 
-          <Link to={products.url && products.url[0]} target="_blank">
-            <Button type="dashed" icon={<DownloadOutlined />} size="large">
-              Download
-            </Button>
-          </Link>
+              <Link to={products.url && products.url[0]} target="_blank">
+                <Button type="dashed" icon={<DownloadOutlined />} size="large">
+                  Download
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

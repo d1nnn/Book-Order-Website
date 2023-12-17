@@ -9,7 +9,17 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartShopping,
+  faHeart,
+  faList,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  ShoppingCartOutlined,
+  HeartOutlined,
+  DownloadOutlined,
+  UnorderedListOutlined,
+} from "@ant-design/icons";
 const Header = () => {
   return (
     <div>
@@ -64,6 +74,9 @@ const Header = () => {
                   icon={faCartShopping}
                   className="cartShopping p-1"
                 />
+              </Nav.Link>
+              <Nav.Link as={Link} to="/orders">
+                <FontAwesomeIcon icon={faList} />
               </Nav.Link>
               <Nav.Link as={Link} to="/login">
                 Login

@@ -24,6 +24,7 @@ import Loading from "./components/Loading/Loading";
 import { useState, useEffect } from "react";
 import Authors from "./pages/authors/Authors";
 import Products from "./pages/products/Products";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/authors/:id" element={<Authors />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<WishList />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<Page404 />} />
         <Route path="loading" element={<Loading />} />
       </Routes>

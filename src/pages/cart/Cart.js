@@ -29,12 +29,8 @@ const Cart = () => {
     );
   });
 
-  const listItem2 = carts.map((cart) => {
-    return cart.product;
-  });
-
-  const totalS = listItem2.reduce((tong, item) => {
-    return tong + item.price;
+  const totalS = carts.reduce((tong, item) => {
+    return tong + item.product.price;
   }, 0);
 
   {
@@ -56,18 +52,18 @@ const Cart = () => {
             <thead style={{ width: "100%" }}>
               <tr>
                 <th span="1" style={{ width: "20%" }} scope="col">
-                  ID
+                  Name
                 </th>
                 <th span="1" style={{ width: "10%" }} scope="col">
-                  Name
+                  Category
+                </th>
+                <th span="1" style={{ width: "30%" }} scope="col">
+                  Cover
                 </th>
                 <th span="1" style={{ width: "10%" }} scope="col">
                   Price
                 </th>
-                <th span="1" style={{ width: "20%" }} scope="col">
-                  Cover
-                </th>
-                <th span="1" style={{ width: "20%" }} scope="col">
+                <th span="1" style={{ width: "10%" }} scope="col">
                   Remove
                 </th>
               </tr>

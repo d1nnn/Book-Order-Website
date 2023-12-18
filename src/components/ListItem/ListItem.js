@@ -37,12 +37,12 @@ const ListItem = (props) => {
   return (
     <tbody>
       <tr key={cartItem._id}>
-        <td>{cartItem._id}</td>
         <td>{cartItem.name}</td>
-        <td>{cartItem.price}</td>
+        <td>{cartItem.category}</td>
         <td>
           <img className="wlimg" src={cartItem.imageUrl} />
         </td>
+        <td>{cartItem.price}</td>
         <td>
           <button
             className="btn btn-danger"

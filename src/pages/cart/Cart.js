@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import BookDataService from "../../services/BookDataService";
 import { Button, Input } from "antd";
 import "./Cart.css";
+import ListItem from "../../components/ListItem/ListItem";
 
 const Cart = () => {
   const [carts, setCarts] = useState([]);
@@ -12,12 +13,12 @@ const Cart = () => {
   useEffect(() => {
     retrieveCart();
     // setTa((tA += Number(totalAmount.current.innerText)));
-  }, []);
+  }, [carts]);
   // let total = 0;
   const retrieveCart = () => {
     BookDataService.getCart()
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setCarts(res.data);
       })
       .catch((e) => {
@@ -29,6 +30,14 @@ const Cart = () => {
     // setTa((tA += Number(totalAmount.current.innerText)));
     console.log(totalAmount);
   };
+
+  const listItem1 = carts.map((cart, i) => {
+    return (
+      <>
+        {cart.product && <ListItem id2={cart.product._id} cartId={cart._id} />}
+      </>
+    );
+  });
   // setTa(tA + Number(totalAmount.current.innerText));
 
   // for (var i = 0; i < carts.length; i++) {
@@ -65,6 +74,9 @@ const Cart = () => {
             <thead style={{ width: "100%" }}>
               <tr>
                 <th span="1" style={{ width: "20%" }} scope="col">
+                  ID
+                </th>
+                <th span="1" style={{ width: "10%" }} scope="col">
                   Name
                 </th>
                 <th span="1" style={{ width: "10%" }} scope="col">
@@ -76,35 +88,13 @@ const Cart = () => {
                 <th span="1" style={{ width: "20%" }} scope="col">
                   Remove
                 </th>
-                {/* <th span="1" style={{ width: "20%" }} scope="col">
-                Remove
-              </th> */}
               </tr>
             </thead>
             {/* start map */}
-            {carts.map((cart, i) => {
-              return (
-                <>
-                  <tbody>
-                    {cart.product && (
-                      <tr key={cart.product.id}>
-                        <td>{cart.product.name}</td>
-                        <td ref={totalAmount}>{cart.product.price}</td>
-                        <td>
-                          <img className="wlimg" src={cart.product.imageUrl} />
-                        </td>
-                        <td>
-                          <button className="btn btn-danger">Remove</button>
-                        </td>
-                        {/* <td>
-                        <button className="btn btn-danger">Remove</button>
-                      </td> */}
-                      </tr>
-                    )}
-                  </tbody>
-                </>
-              );
-            })}
+            {listItem1}
+            {/* {carts.map((cart, i) => {
+              return <>{cart.product && <ListItem id2={cart.product._id} />}</>;
+            })} */}
             {/* end map */}
           </table>
         </div>

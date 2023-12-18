@@ -1,65 +1,59 @@
 import axios from "axios";
-
-const tokenStr =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTcxZTM0NmU3MDQ0NDA2OGZjM2YwOWYiLCJpYXQiOjE3MDI4Nzc2NTEsImV4cCI6MTcwMjk2NDA1MX0.LkjzRBFKZTqeNwUq9JIb3T_JFHnEXeP8ELQYujwxsIw";
+import { url, get_header } from "../settings";
 
 export const BookDataService = {
-  getAllAuthors: () => {
-    return axios.get(`http://35.187.239.47:8080/authors/`, {
-      headers: { "Session-ID": "123456789abcdef" },
+  getAllAuthors: async () => {
+    return axios.get(`${url}/authors/`, {
+      headers: await get_header(),
     });
   },
-  getAuthorsById: (id) => {
-    return axios.get(`http://35.187.239.47:8080/authors/${id}`, {
-      headers: { "Session-ID": "123456789abcdef" },
+  getAuthorsById: async (id) => {
+    return axios.get(`${url}/authors/${id}`, {
+      headers: await get_header(),
     });
   },
-  getAllProducts: () => {
-    // return axios.get(`http://35.187.239.47:8080/products`, {
-    //   headers: { "Session-ID": "123456789abcdef" },
-    // });
-    return axios.get(`http://35.187.239.47:8080/products`, {
-      headers: { Authorization: `Bearer ${tokenStr}` },
+  getAllProducts: async () => {
+    return axios.get(`${url}/products`, {
+      headers: await get_header(),
     });
   },
-  getProductsById: (id) => {
-    // return axios.get(`http://35.187.239.47:8080/products/${id}`, {
-    //   headers: { "Session-ID": "123456789abcdef" },
-    // });
-
-    return axios.get(`http://35.187.239.47:8080/products/${id}`, {
-      headers: { Authorization: `Bearer ${tokenStr}` },
+  getProductsById: async (id) => {
+    return axios.get(`${url}/products/${id}`, {
+      headers: await get_header(),
     });
   },
-  getWishList: () => {
-    return axios.get(`http://35.187.239.47:8080/wishlist`, {
-      headers: { Authorization: `Bearer ${tokenStr}` },
+  getWishList: async () => {
+    return axios.get(`${url}/wishlist`, {
+      headers: await get_header(),
     });
   },
-  getCart: () => {
-    return axios.get(`http://35.187.239.47:8080/carts`, {
-      headers: { Authorization: `Bearer ${tokenStr}` },
+  getCart: async () => {
+    return await axios.get(`${url}/carts`, {
+      headers: await get_header(),
     });
   },
-  postCarts: (data) => {
-    return axios.post(`http://35.187.239.47:8080/carts`, data, {
-      headers: { Authorization: `Bearer ${tokenStr}` },
+  getOrders: async () => {
+    return axios.get(`${url}/orders`, {
+      headers: await get_header(),
     });
   },
-  delCarts: (id) => {
-    return axios.delete(`http://35.187.239.47:8080/carts/${id}`, {
-      headers: { Authorization: `Bearer ${tokenStr}` },
+  postCarts: async (data) => {
+    return axios.post(`${url}/carts`, data, {
+      headers: await get_header(),
     });
   },
-  getOrders: () => {
-    return axios.get(`http://35.187.239.47:8080/orders`, {
-      headers: { "Session-ID": "123456789abcdef" },
+  postWishList: async (data) => {
+    return axios.post(`${url}/wishlist`, data, {
+      headers: await get_header(),
     });
   },
 
-  postWishList: (data) => {
-    return axios.post(`http://35.187.239.47:8080/wishlist`, data, {
-      headers: { Authorization: `Bearer ${tokenStr}` },
+  logIn: async (data) => {
+    return await axios.post(`${url}/auth/login`, data);
+  },
+  signUp: async (data) => {
+    return await axios.post(`${url}/users`, data, {
+      headers: await get_header(),
     });
   },
 };

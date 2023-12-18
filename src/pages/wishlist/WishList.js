@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import BookDataService from "../../services/BookDataService";
 import "./WishList.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 
 const WishList = () => {
   const [wishList, setWishList] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
     retrieveWishList();
@@ -19,6 +21,14 @@ const WishList = () => {
       .catch((e) => {
         console.log(e);
       });
+  };
+
+  const postCarts = (id) => {
+    var data = {
+      product: id,
+    };
+    BookDataService.postCarts(data);
+    console.log(data);
   };
 
   return (
@@ -48,9 +58,9 @@ const WishList = () => {
                 <th span="1" style={{ width: "20%" }} scope="col">
                   Add to Cart
                 </th>
-                {/* <th span="1" style={{ width: "20%" }} scope="col">
+                <th span="1" style={{ width: "20%" }} scope="col">
                   Remove
-                </th> */}
+                </th>
               </tr>
             </thead>
             {/* start map */}
@@ -58,23 +68,77 @@ const WishList = () => {
               return (
                 <>
                   <tbody>
-                    {wl.product && (
-                      <tr key={wl.product.id}>
-                        <td>{wl.product.name}</td>
-                        <td>{wl.product.price}$</td>
-                        <td>
-                          <img className="wlimg" src={wl.product.imageUrl} />
-                        </td>
-                        <td>
-                          <button className="btn btn-primary">
-                            Add to Cart
-                          </button>
-                        </td>
-                        {/* <td>
-                          <button className="btn btn-danger">Remove</button>
-                        </td> */}
-                      </tr>
-                    )}
+                    <tr key={wl.product._id}>
+                      <td>{wl.product.name}</td>
+                      <td>{wl.product.price}$</td>
+                      <td>
+                        <img className="wlimg" src={wl.product.imageUrl} />
+                      </td>
+                      <td>
+                        {/* <button
+                          className="btn btn-primary"
+                          onClick={() => {
+                            postCarts(wl.product._id);
+                          }}
+                        >
+                          Add to Cart
+                        </button> */}
+                        <button
+                          type="button"
+                          className="btn btn-primary"
+                          data-bs-toggle="modal"
+                          data-bs-target="#wishListModal"
+                          onClick={() => {
+                            postCarts(wl.product._id);
+                          }}
+                        >
+                          <icon>
+                            <ShoppingCartOutlined />
+                          </icon>
+                          Add to Cart
+                        </button>
+                        {/* Modal */}
+                        <div
+                          className="modal fade"
+                          id="wishListModal"
+                          tabIndex={-1}
+                          aria-labelledby="exampleModalLabel"
+                          aria-hidden="true"
+                        >
+                          <div className="modal-dialog">
+                            <div className="modal-content">
+                              <div className="modal-header">
+                                <h5
+                                  className="modal-title"
+                                  id="exampleModalLabel"
+                                >
+                                  Success!
+                                </h5>
+                                <button
+                                  type="button"
+                                  className="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close"
+                                />
+                              </div>
+                              <div className="modal-body">Added to Cart</div>
+                              <div className="modal-footer">
+                                <button
+                                  type="button"
+                                  className="btn btn-primary"
+                                  data-bs-dismiss="modal"
+                                >
+                                  Close
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <button className="btn btn-danger">Remove</button>
+                      </td>
+                    </tr>
                   </tbody>
                 </>
               );
@@ -83,13 +147,7 @@ const WishList = () => {
           </table>
         </div>
       </div>
-      {/* <div className="row">
-        <div className="col-12">
-          <h2>Total: {totalAmount}</h2>
-        </div>
-      </div> */}
     </>
-    // <div>
   );
 };
 

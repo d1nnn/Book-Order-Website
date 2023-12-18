@@ -1,25 +1,26 @@
 import { React, useState } from "react";
 import "./Login.css";
-import { useCollapse } from "react-collapsed";
-
-const Collapsible = (props) => {
-  const [open, setOPen] = useState(false);
-  const toggle = () => {
-    setOPen(!open);
-  };
-  return (
-    <div>
-      <button className="collapse-header" onClick={toggle}>
-        {props.label}
-      </button>
-      {open && <div className="collapse-body">{props.children}</div>}
-    </div>
-  );
-};
+import BookDataService from "../../services/BookDataService";
+import { Form, Input, Checkbox, Button, Modal } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [openLogin, setOpenLogin] = useState(false);
   const [openSignup, setOpenSignup] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [modalText, setModalText] = useState("");
+  const navigate = useNavigate();
+
+  const handleCancel = () => {
+    console.log("Clicked cancel button");
+    setOpen(false);
+  };
+
+  const handleOk = () => {
+    console.log("Clicked ok button");
+    setOpen(false);
+  };
+
   const collapseLogin = () => {
     setOpenLogin(!openLogin);
     setOpenSignup(false);
@@ -28,6 +29,35 @@ const Login = () => {
     setOpenSignup(!openSignup);
     setOpenLogin(false);
   };
+
+  const onLoginFinish = async (data) => {
+    try {
+      const res = await BookDataService.logIn(data);
+      sessionStorage.setItem("accessToken", res.data.result.accessToken);
+      setModalText("Sign in success");
+      setOpen(true);
+      // setConfirmLoading(true);
+      setTimeout(() => {
+        setOpen(false);
+        // setConfirmLoading(false);
+        navigate("/");
+      }, 2000);
+    } catch (error) {
+      setModalText("Fail to sign in");
+      setOpen(true);
+    }
+  };
+  const onSignupinish = async (data) => {
+    try {
+      const res = await BookDataService.signUp(data);
+      setModalText("Sign up success");
+      setOpen(true);
+    } catch (error) {
+      setModalText("Fail to sign up", error);
+      setOpen(true);
+    }
+  };
+
   return (
     <div className="login-wrapper">
       <div className="login-main">
@@ -39,32 +69,50 @@ const Login = () => {
           {openLogin && (
             <div className="collapse-body">
               <div class="detailArea">
-                <form>
-                  <div class="form-login">
-                    <label for="inputUsername">Username</label>
-                    <input
-                      id="username"
-                      name="username"
-                      placeholder="Enter Username"
-                      type="text"
-                      value=""
-                    />
-                  </div>
-                  <div class="form-login">
-                    <label for="inputPassword">Password</label>
-                    <input
-                      id="password"
-                      name="password"
-                      placeholder="Enter Password"
-                      type="password"
-                    />
-                  </div>
-                  <div>
-                    <div>
-                      <button class="submit">Continue</button>
-                    </div>
-                  </div>
-                </form>
+                <Form
+                  initialValues={{ remember: true }}
+                  onFinish={onLoginFinish}
+                  autoComplete="on"
+                  layout="vertical"
+                >
+                  <Form.Item
+                    label="Username"
+                    name="username"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your username!",
+                      },
+                    ]}
+                  >
+                    <Input />
+                  </Form.Item>
+                  <Form.Item
+                    label="Password"
+                    name="password"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your password!",
+                      },
+                    ]}
+                  >
+                    <Input.Password />
+                  </Form.Item>
+                  <Form.Item name="remember" valuePropName="checked">
+                    <Checkbox>Remember me</Checkbox>
+                  </Form.Item>
+                  <Form.Item wrapperCol={{ offset: 0 }}>
+                    <Button
+                      className="submit"
+                      type="primary"
+                      htmlType="submit"
+                      size="large"
+                    >
+                      Continue
+                    </Button>
+                  </Form.Item>
+                </Form>
               </div>
             </div>
           )}
@@ -77,48 +125,98 @@ const Login = () => {
           {openSignup && (
             <div className="collapse-body">
               <div class="detailArea">
-                <form>
-                  <div class="form-signup">
-                    <label for="inputEmailSignup">Email</label>
-                    <input
-                      id="email"
-                      name="email"
-                      placeholder="Enter Email"
-                      type="text"
-                      value=""
-                    />
-                  </div>
-                  <div class="form-signup">
-                    <label for="inputUsernameSignup">Username</label>
-                    <input
-                      id="username"
-                      name="username"
-                      placeholder="Enter Username"
-                      type="text"
-                      value=""
-                    />
-                  </div>
-                  <div class="form-signup">
-                    <label for="inputPassword">Password</label>
-                    <input
-                      id="password"
-                      name="password"
-                      placeholder="Enter Password"
-                      type="password"
-                    />
-                  </div>
-                  <div>
-                    <div>
-                      <button className="submit">Continue</button>
-                    </div>
-                  </div>
-                </form>
+                <Form
+                  initialValues={{ remember: true }}
+                  onFinish={onSignupinish}
+                  autoComplete="on"
+                  layout="vertical"
+                >
+                  <Form.Item
+                    label="Name"
+                    name="displayName"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your name!",
+                      },
+                    ]}
+                  >
+                    <Input />
+                  </Form.Item>
+                  <Form.Item
+                    label="Email"
+                    name="email"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your email!",
+                      },
+                      {
+                        type: "email",
+                        message: "The input is not valid E-mail!",
+                      },
+                    ]}
+                  >
+                    <Input />
+                  </Form.Item>
+                  <Form.Item
+                    label="Username"
+                    name="username"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your username!",
+                      },
+                      {
+                        min: 6,
+                        message: "Username must have a minimum length of 6",
+                      },
+                    ]}
+                  >
+                    <Input />
+                  </Form.Item>
+                  <Form.Item
+                    label="Password"
+                    name="password"
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your password!",
+                      },
+                      {
+                        min: 8,
+                        message: "Password must have a minimum length of 8",
+                      },
+                    ]}
+                  >
+                    <Input.Password />
+                  </Form.Item>
+                  <Form.Item wrapperCol={{ offset: 0 }}>
+                    <Button
+                      className="submit"
+                      type="primary"
+                      htmlType="submit"
+                      size="large"
+                    >
+                      Continue
+                    </Button>
+                  </Form.Item>
+                </Form>
               </div>
             </div>
           )}
         </div>
         <hr />
       </div>
+      <Modal
+        title="Notification"
+        open={open}
+        onOk={handleOk}
+        // confirmLoading={confirmLoading}
+        onCancel={handleCancel}
+      >
+        {modalText}
+      </Modal>
     </div>
   );
 };

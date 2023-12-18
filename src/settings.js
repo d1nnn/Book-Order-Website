@@ -8,7 +8,7 @@ var generatePassword = (
     .map((x) => characters[x % characters.length])
     .join("");
 
-export const url = "http://35.187.239.47:8080";
+export const url = "https://fingertips.com.pk/api/paige";
 export const get_header = async () => {
   const Token = sessionStorage.getItem("accessToken");
   if (Token) {

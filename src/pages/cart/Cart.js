@@ -8,7 +8,7 @@ const Cart = () => {
   const [carts, setCarts] = useState([]);
   // const [totalAmount, setTotalAmount] = useState(0);
   let [tA, setTa] = useState(0);
-  let totalAmount = useRef(0);
+  // let totalAmount = useRef(0);
 
   useEffect(() => {
     retrieveCart();
@@ -31,6 +31,11 @@ const Cart = () => {
     console.log(totalAmount);
   };
 
+  // const totalS = carts.reduce((tong, item) => {
+  //   // console.log(cart);
+  //   return tong + item.product.price;
+  // });
+
   const listItem1 = carts.map((cart, i) => {
     return (
       <>
@@ -38,6 +43,16 @@ const Cart = () => {
       </>
     );
   });
+
+  const listItem2 = carts.map((cart) => {
+    return cart.product;
+  });
+  console.log(listItem2);
+
+  const totalS = listItem2.reduce((tong, item) => {
+    return tong + item.price;
+  }, 0);
+
   // setTa(tA + Number(totalAmount.current.innerText));
 
   // for (var i = 0; i < carts.length; i++) {
@@ -99,14 +114,19 @@ const Cart = () => {
           </table>
         </div>
       </div>
-      {/* <div className="row">
-        <button className="btn btn-primary" onClick={calSum}>
+      <div className="row">
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            calSum();
+          }}
+        >
           Cal Sum
         </button>
         <div className="col-12">
-          <h2>Total: {tA}</h2>
+          <h2>Total: {totalS}</h2>
         </div>
-      </div> */}
+      </div>
     </>
     // <div className="cart">
     //   <div className="content">

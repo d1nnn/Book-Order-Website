@@ -4,7 +4,6 @@ import BookDataService from "../../services/BookDataService";
 const WishListItem = (props) => {
   const [wishList, setWishList] = useState([]);
   const [prodId, setProdId] = useState();
-  //   const [wishId, setWishId] = useState();
 
   useEffect(() => {
     retrieveWishList(props.id);

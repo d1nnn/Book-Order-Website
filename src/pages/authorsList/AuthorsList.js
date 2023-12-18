@@ -36,7 +36,6 @@ const AuthorsList = () => {
                 <NavLink to={`${author._id}`}>
                   <img src={`${author.imageUrl}`} alt="" />
                   <h2>{author.name}</h2>
-                  {/* <p>Category: {author.category}</p> */}
                 </NavLink>
               </div>
             );

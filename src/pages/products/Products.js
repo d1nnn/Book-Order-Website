@@ -6,7 +6,6 @@ import { Button } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 
-// import 'antd/dist/antd.css';
 import {
   ShoppingCartOutlined,
   HeartOutlined,
@@ -53,11 +52,6 @@ const Products = () => {
     BookDataService.postCarts(data);
     console.log(data);
   };
-
-  // const downLoad = () => {
-  //   console.log("da down");
-  //   return products.url[0];
-  // };
 
   // const handleDownload = () => {
   //   try {
@@ -193,23 +187,6 @@ const Products = () => {
                   </div>
                 </div>
               </>
-
-              {/* <Button
-                type="primary"
-                onClick={postCarts}
-                icon={<ShoppingCartOutlined />}
-                size="large"
-              >
-                Add to Cart
-              </Button>
-              <Button
-                type="default"
-                onClick={postWishList}
-                icon={<HeartOutlined />}
-                size="large"
-              >
-                Add to WishList
-              </Button> */}
 
               <Link to={products.url && products.url[0]} target="_blank">
                 <Button type="dashed" icon={<DownloadOutlined />} size="large">

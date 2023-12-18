@@ -10,7 +10,7 @@ const Cart = () => {
   useEffect(() => {
     retrieveCart();
   }, [carts]);
-  // let total = 0;
+
   const retrieveCart = () => {
     BookDataService.getCart()
       .then((res) => {
@@ -68,9 +68,7 @@ const Cart = () => {
                 </th>
               </tr>
             </thead>
-            {/* start map */}
             {listItem1}
-            {/* end map */}
           </table>
         </div>
       </div>

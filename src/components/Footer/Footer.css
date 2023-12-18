@@ -2,9 +2,7 @@
   display: flex;
   color: white;
   background-color: #3a4059;
-  /* align-items: ; */
   justify-content: space-evenly;
-  /* height: 100px; */
 }
 
 ul {

@@ -6,7 +6,6 @@ import Loading from "../../components/Loading/Loading";
 
 const Authors = (props) => {
   const params = useParams();
-  //   console.log(params.id);
   const [author, setAuthor] = useState();
   const [loading, setLoading] = useState(false);
 

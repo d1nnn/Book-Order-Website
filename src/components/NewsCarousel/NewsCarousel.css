@@ -3,10 +3,4 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 4em;
   margin: 0 4em 3em 4em;
-  /* margin-left: 3em; */
 }
-
-/* .card {
-  /* padding: 1em; */
-/* margin: 0 2em 0 2em;
-}*/

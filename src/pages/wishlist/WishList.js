@@ -75,14 +75,6 @@ const WishList = () => {
                         <img className="wlimg" src={wl.product.imageUrl} />
                       </td>
                       <td>
-                        {/* <button
-                          className="btn btn-primary"
-                          onClick={() => {
-                            postCarts(wl.product._id);
-                          }}
-                        >
-                          Add to Cart
-                        </button> */}
                         <button
                           type="button"
                           className="btn btn-primary"

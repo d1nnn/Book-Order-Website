@@ -80,9 +80,7 @@ const Cart = () => {
         </div>
         <div className="btn1">
           <h5>Promotion Code</h5>
-
           <Input className="inp"></Input>
-
           <Button type="primary" size="large">
             Proceed To Order
           </Button>

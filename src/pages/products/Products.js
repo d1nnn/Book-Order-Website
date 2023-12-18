@@ -42,6 +42,7 @@ const Products = () => {
       product: params.id,
     };
     BookDataService.postWishList(data);
+    console.log("da add wishlist");
     console.log(data);
   };
 
@@ -99,14 +100,16 @@ const Products = () => {
                   type="button"
                   className="btn btn-primary"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
+                  data-bs-target="#wishListModal"
+                  onClick={postWishList}
                 >
+                  <icon>{<HeartOutlined />}</icon>
                   Add to Wishlist
                 </button>
                 {/* Modal */}
                 <div
                   className="modal fade"
-                  id="exampleModal"
+                  id="wishListModal"
                   tabIndex={-1}
                   aria-labelledby="exampleModalLabel"
                   aria-hidden="true"
@@ -115,7 +118,7 @@ const Products = () => {
                     <div className="modal-content">
                       <div className="modal-header">
                         <h5 className="modal-title" id="exampleModalLabel">
-                          Modal title
+                          Success!
                         </h5>
                         <button
                           type="button"
@@ -124,11 +127,11 @@ const Products = () => {
                           aria-label="Close"
                         />
                       </div>
-                      <div className="modal-body">Added to wish list</div>
+                      <div className="modal-body">Added to Wish List</div>
                       <div className="modal-footer">
                         <button
                           type="button"
-                          className="btn btn-secondary"
+                          className="btn btn-primary"
                           data-bs-dismiss="modal"
                         >
                           Close
@@ -142,17 +145,20 @@ const Products = () => {
                 </div>
                 <button
                   type="button"
-                  className="btn btn-primary"
+                  className="btn btn-success"
                   data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
+                  data-bs-target="#cartModal"
                   onClick={postCarts}
                 >
+                  <icon>
+                    <ShoppingCartOutlined />
+                  </icon>
                   Add to Cart
                 </button>
                 {/* Modal */}
                 <div
                   className="modal fade"
-                  id="exampleModal"
+                  id="cartModal"
                   tabIndex={-1}
                   aria-labelledby="exampleModalLabel"
                   aria-hidden="true"
@@ -161,7 +167,7 @@ const Products = () => {
                     <div className="modal-content">
                       <div className="modal-header">
                         <h5 className="modal-title" id="exampleModalLabel">
-                          Modal title
+                          Success!
                         </h5>
                         <button
                           type="button"
@@ -174,7 +180,7 @@ const Products = () => {
                       <div className="modal-footer">
                         <button
                           type="button"
-                          className="btn btn-secondary"
+                          className="btn btn-primary"
                           data-bs-dismiss="modal"
                         >
                           Close
@@ -188,7 +194,7 @@ const Products = () => {
                 </div>
               </>
 
-              <Button
+              {/* <Button
                 type="primary"
                 onClick={postCarts}
                 icon={<ShoppingCartOutlined />}
@@ -203,7 +209,7 @@ const Products = () => {
                 size="large"
               >
                 Add to WishList
-              </Button>
+              </Button> */}
 
               <Link to={products.url && products.url[0]} target="_blank">
                 <Button type="dashed" icon={<DownloadOutlined />} size="large">

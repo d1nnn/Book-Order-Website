@@ -6,35 +6,20 @@ import ListItem from "../../components/ListItem/ListItem";
 
 const Cart = () => {
   const [carts, setCarts] = useState([]);
-  // const [totalAmount, setTotalAmount] = useState(0);
-  let [tA, setTa] = useState(0);
-  // let totalAmount = useRef(0);
 
   useEffect(() => {
     retrieveCart();
-    // setTa((tA += Number(totalAmount.current.innerText)));
   }, [carts]);
   // let total = 0;
   const retrieveCart = () => {
     BookDataService.getCart()
       .then((res) => {
-        // console.log(res.data);
         setCarts(res.data);
       })
       .catch((e) => {
         console.log(e);
       });
   };
-
-  const calSum = () => {
-    // setTa((tA += Number(totalAmount.current.innerText)));
-    console.log(totalAmount);
-  };
-
-  // const totalS = carts.reduce((tong, item) => {
-  //   // console.log(cart);
-  //   return tong + item.product.price;
-  // });
 
   const listItem1 = carts.map((cart, i) => {
     return (
@@ -47,28 +32,10 @@ const Cart = () => {
   const listItem2 = carts.map((cart) => {
     return cart.product;
   });
-  console.log(listItem2);
 
   const totalS = listItem2.reduce((tong, item) => {
     return tong + item.price;
   }, 0);
-
-  // setTa(tA + Number(totalAmount.current.innerText));
-
-  // for (var i = 0; i < carts.length; i++) {
-  //   total += carts[i].product.price;
-  // }
-  // console.log(total);
-
-  // var prices = carts.map((p) => {
-  //   p.product.price;
-  // });
-  // console.log(prices)
-
-  // let x = carts.reduce((total, cart) => {
-  //   return total + cart.product.price;
-  // }, 0);
-  // console.log(x);
 
   {
     carts.length == 0 && <div>No items are added</div>;
@@ -107,54 +74,25 @@ const Cart = () => {
             </thead>
             {/* start map */}
             {listItem1}
-            {/* {carts.map((cart, i) => {
-              return <>{cart.product && <ListItem id2={cart.product._id} />}</>;
-            })} */}
             {/* end map */}
           </table>
         </div>
       </div>
       <div className="row">
-        <button
-          className="btn btn-primary"
-          onClick={() => {
-            calSum();
-          }}
-        >
-          Cal Sum
-        </button>
         <div className="col-12">
           <h2>Total: {totalS}</h2>
         </div>
+        <div className="btn1">
+          <h5>Promotion Code</h5>
+
+          <Input className="inp"></Input>
+
+          <Button type="primary" size="large">
+            Proceed To Order
+          </Button>
+        </div>
       </div>
     </>
-    // <div className="cart">
-    //   <div className="content">
-    //     {carts.map((cart, i) => {
-    //       return (
-    //         <ul key={i}>
-    //           {cart.product && (
-    //             <li>
-    //               <img src={cart.product.imageUrl} />
-    //               {cart.product.name} x {cart.product.price}$
-    //               <button className="btn btn-danger"> Remove</button>
-    //             </li>
-    //           )}
-    //         </ul>
-    //       );
-    //     })}
-    //   </div>
-    //   <div className="btn1">
-    //     <h5>Promotion Code</h5>
-
-    //     <Input className="inp"></Input>
-
-    //     <Button type="primary" size="large">
-    //       Proceed To Order
-    //     </Button>
-    //   </div>
-    //   {/* <p>Total amount: {totalAmount}</p> */}
-    // </div>
   );
 };
 

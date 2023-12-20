@@ -39,7 +39,6 @@ const Header = () => {
     );
   };
   useEffect(() => {
-    console.log("khoa");
     authorized();
   }, []);
   return (

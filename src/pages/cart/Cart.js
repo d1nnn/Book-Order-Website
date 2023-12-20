@@ -116,7 +116,7 @@ const Cart = () => {
             <div
               style={{
                 background: "white",
-                marginRight: "100px",
+                marginRight: "60px",
                 marginLeft: "3%",
               }}
             >
@@ -126,9 +126,8 @@ const Cart = () => {
                     <p className="cart-row">Quantity </p>
                   </Col>
                   <Col span={12}>
-                    <p className="cart-row">{`${
-                      carts && carts.length
-                    } item(s)`}</p>
+                    <p className="cart-row">{`${carts && carts.length
+                      } item(s)`}</p>
                   </Col>
                 </Row>
                 <Row>
@@ -187,7 +186,7 @@ const Cart = () => {
                   <Form.Item wrapperCol={{ offset: 0 }}>
                     <Button
                       style={{
-                        width: "90%",
+                        width: "85%",
                         marginTop: "18px",
                         marginBottom: "50px",
                         height: "60px",

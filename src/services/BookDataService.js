@@ -77,8 +77,8 @@ export const BookDataService = {
     );
   },
 
-  updateUser: async (id, data) => {
-    return await axios.patch(`${url}/users/${id}`, data, {
+  updateUser: async (data) => {
+    return await axios.patch(`${url}/users/me`, data, {
       headers: await get_header(),
     });
   },

@@ -3,22 +3,62 @@
 
 }
 
-.user-hello h2 {
+.user-hello h2,
+.ant-card-head-title {
     padding-top: 50px;
     padding-bottom: 30px;
+    font-size: 25px;
+    color: #3a4059;
+    text-align: center;
+}
+
+.user-hello .ant-card-head-title {
+    font-size: 27px;
 }
 
 .user-child .ant-menu-item {
     height: 80px;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 700;
     color: gray;
 }
 
 .user-child .ant-menu-item-selected {
     height: 80px;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #3a4059;
+    background-color: #f5f6fa;
+}
+
+.user-form * {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.ant-card .ant-card-body {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.user-form label {
+    font-size: 14px !important;
     font-weight: 700;
     color: #353b57;
-    background-color: #f5f6fa;
+}
+
+.user-form .ant-input,
+.user-form .ant-input-password {
+    background-color: #fafafc;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #c3c7d9;
+    border-radius: 0;
+    transition: all 0.2s;
+    line-height: 2.5;
+}
+
+.user-form .ant-input {
+    color: #2e3347;
+    font-size: 14px;
+    font-weight: 600;
 }

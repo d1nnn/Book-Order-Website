@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -30,16 +30,18 @@ import {
   faList,
 } from "@fortawesome/free-solid-svg-icons";
 
-function App() {
-  const [currentUser, setCurrentUser] = useState(undefined);
+export const Context = React.createContext();
 
-  useEffect(() => {
-    const user = BookDataService.getCurrentUser();
-    console.log(user);
-    if (user) {
-      setCurrentUser(user);
-    }
-  }, [currentUser]);
+function App() {
+  const [currentUser, setCurrentUser] = useState(false);
+
+  // useEffect(() => {
+  //   const user = BookDataService.getCurrentUser();
+  //   console.log(user);
+  //   if (user) {
+  //     setCurrentUser(user);
+  //   }
+  // }, [currentUser]);
 
   const handleLogout = () => {
     BookDataService.logOut();
@@ -47,81 +49,83 @@ function App() {
   };
 
   return (
-    <div>
-      {/* <Header /> */}
-      <Navbar bg="dark" data-bs-theme="dark">
-        <Container>
-          <Navbar.Brand as={Link} to="/">
-            BaBook
-          </Navbar.Brand>
-          <Nav className="flex-grow-1 justify-content-between me-auto">
-            <Nav className="">
-              <Nav.Link as={Link} to="/">
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to="/products">
-                Products
-              </Nav.Link>
-              <Nav.Link as={Link} to="/authors">
-                Authors
-              </Nav.Link>
+    <Context.Provider value={[currentUser, setCurrentUser]}>
+      <div>
+        {/* <Header /> */}
+        <Navbar bg="dark" data-bs-theme="dark">
+          <Container>
+            <Navbar.Brand as={Link} to="/">
+              BaBook
+            </Navbar.Brand>
+            <Nav className="flex-grow-1 justify-content-between me-auto">
+              <Nav className="">
+                <Nav.Link as={Link} to="/">
+                  Home
+                </Nav.Link>
+                <Nav.Link as={Link} to="/products">
+                  Products
+                </Nav.Link>
+                <Nav.Link as={Link} to="/authors">
+                  Authors
+                </Nav.Link>
 
-              <Nav.Link as={Link} to="/promotions">
-                Promotions
-              </Nav.Link>
-              <Nav.Link as={Link} to="/about-us">
-                About-us
-              </Nav.Link>
-              <Nav.Link as={Link} to="/contact">
-                Contact
-              </Nav.Link>
-            </Nav>
-            <Nav>
-              <Nav.Link as={Link} to="/wishlist">
-                <FontAwesomeIcon icon={faHeart} />
-              </Nav.Link>
-              <Nav.Link as={Link} to="/cart">
-                {" "}
-                <FontAwesomeIcon
-                  icon={faCartShopping}
-                  className="cartShopping p-1"
-                />
-              </Nav.Link>
-              <Nav.Link as={Link} to="/orders">
-                <FontAwesomeIcon icon={faList} />
-              </Nav.Link>
-              {currentUser ? (
-                <Nav.Link as={Link} onClick={handleLogout}>
-                  Logout
+                <Nav.Link as={Link} to="/promotions">
+                  Promotions
                 </Nav.Link>
-              ) : (
-                <Nav.Link as={Link} to="/login">
-                  Login
+                <Nav.Link as={Link} to="/about-us">
+                  About-us
                 </Nav.Link>
-              )}
+                <Nav.Link as={Link} to="/contact">
+                  Contact
+                </Nav.Link>
+              </Nav>
+              <Nav>
+                <Nav.Link as={Link} to="/wishlist">
+                  <FontAwesomeIcon icon={faHeart} />
+                </Nav.Link>
+                <Nav.Link as={Link} to="/cart">
+                  {" "}
+                  <FontAwesomeIcon
+                    icon={faCartShopping}
+                    className="cartShopping p-1"
+                  />
+                </Nav.Link>
+                <Nav.Link as={Link} to="/orders">
+                  <FontAwesomeIcon icon={faList} />
+                </Nav.Link>
+                {currentUser ? (
+                  <Nav.Link as={Link} onClick={handleLogout}>
+                    Logout
+                  </Nav.Link>
+                ) : (
+                  <Nav.Link as={Link} to="/login">
+                    Login
+                  </Nav.Link>
+                )}
+              </Nav>
             </Nav>
-          </Nav>
-        </Container>
-      </Navbar>
-      <Banner />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<ProductsList />} />
-        <Route path="/products/:id" element={<Products />} />
-        <Route path="/promotions" element={<Promotions />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/authors" element={<AuthorsList />} />
-        <Route path="/authors/:id" element={<Authors />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<WishList />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Page404 />} />
-        <Route path="loading" element={<Loading />} />
-      </Routes>
-      <Footer />
-    </div>
+          </Container>
+        </Navbar>
+        <Banner />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductsList />} />
+          <Route path="/products/:id" element={<Products />} />
+          <Route path="/promotions" element={<Promotions />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/authors" element={<AuthorsList />} />
+          <Route path="/authors/:id" element={<Authors />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<WishList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Page404 />} />
+          <Route path="loading" element={<Loading />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Context.Provider>
   );
 }
 

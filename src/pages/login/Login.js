@@ -1,8 +1,9 @@
-import { React, useEffect, useState } from "react";
+import { React, useContext, useEffect, useState } from "react";
 import "./Login.css";
 import BookDataService from "../../services/BookDataService";
 import { Form, Input, Checkbox, Button, Modal } from "antd";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../../App";
 
 const Login = () => {
   const [openLogin, setOpenLogin] = useState(false);
@@ -13,15 +14,15 @@ const Login = () => {
 
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   // useEffect(() => {}, []);
-  const [currentUser, setCurrentUser] = useState(undefined);
+  const [currentUser, setCurrentUser] = useContext(Context);
 
-  useEffect(() => {
-    const user = BookDataService.getCurrentUser();
-    console.log(user);
-    if (user) {
-      setCurrentUser(user);
-    }
-  }, [currentUser]);
+  // useEffect(() => {
+  //   const user = BookDataService.getCurrentUser();
+  //   console.log(user);
+  //   if (user) {
+  //     setCurrentUser(user);
+  //   }
+  // }, [currentUser]);
 
   const handleCancel = () => {
     console.log("Clicked cancel button");

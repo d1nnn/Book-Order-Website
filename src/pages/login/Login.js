@@ -12,8 +12,6 @@ const Login = () => {
   const [modalText, setModalText] = useState("");
   const navigate = useNavigate();
 
-  const [currentUser, setCurrentUser] = useContext(Context);
-
   const handleCancel = () => {
     console.log("Clicked cancel button");
     setOpen(false);

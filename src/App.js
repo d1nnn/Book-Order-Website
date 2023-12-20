@@ -34,13 +34,6 @@ import Header from "./components/Header/Header";
 export const Context = React.createContext();
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(false);
-
-  const handleLogout = () => {
-    BookDataService.logOut();
-    setCurrentUser(undefined);
-  };
-
   return (
     <div>
       <Header />

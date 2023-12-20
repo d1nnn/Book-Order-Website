@@ -16,7 +16,6 @@ import { is_authorzied } from "../../settings";
 
 const Header = () => {
   const [login, setLogin] = useState();
-  // const {isLogin, SetIsLogin} = useState(false)
   const authorized = async () => {
     if (await is_authorzied()) {
       setLogin(
@@ -82,15 +81,7 @@ const Header = () => {
               <Nav.Link as={Link} to="/orders">
                 <FontAwesomeIcon icon={faList} />
               </Nav.Link>
-              {currentUser ? (
-                <Nav.Link as={Link} onClick={handleLogout}>
-                  Logout
-                </Nav.Link>
-              ) : (
-                <Nav.Link as={Link} to="/login">
-                  Login
-                </Nav.Link>
-              )}
+              {login}
             </Nav >
           </Nav >
         </Container >

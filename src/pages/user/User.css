@@ -1,0 +1,24 @@
+.user-child * {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+
+}
+
+.user-hello h2 {
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.user-child .ant-menu-item {
+    height: 80px;
+    font-size: 18px;
+    font-weight: 700;
+    color: gray;
+}
+
+.user-child .ant-menu-item-selected {
+    height: 80px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #353b57;
+    background-color: #f5f6fa;
+}

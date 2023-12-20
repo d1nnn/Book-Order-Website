@@ -9,17 +9,27 @@ var generatePassword = (
     .join("");
 
 export const url = "https://fingertips.com.pk/api/paige";
-export const get_header = async () => {
-  const Token = sessionStorage.getItem("accessToken");
-  if (Token) {
-    const _headers = { Authorization: `Bearer ${Token}` };
+
+export const is_authorzied = async (token = null) => {
+  if (!token) {
+    token = sessionStorage.getItem("accessToken");
+  }
+  try {
     const response = await axios.post(
       `${url}/auth/verify`,
       {},
-      { headers: _headers }
+      { headers: { Authorization: `Bearer ${token}` } }
     );
-    if (response.status == 200) return _headers;
+    return response.status == 200;
+  } catch (error) {
+    return false;
   }
+};
+
+export const get_header = async () => {
+  const Token = sessionStorage.getItem("accessToken");
+  if (await is_authorzied(Token)) return { Authorization: `Bearer ${Token}` };
+
   let Session = sessionStorage.getItem("sessionID");
   if (!Session) {
     Session = generatePassword();

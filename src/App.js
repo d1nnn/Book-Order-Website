@@ -12,6 +12,7 @@ import Cart from "./pages/cart/Cart";
 import Contact from "./pages/contact/Contact";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
+import User from "./pages/user/User";
 import Orders from "./pages/orders/Orders";
 import Page404 from "./pages/page404/Page404";
 import Products from "./pages/products/Products";
@@ -37,6 +38,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<WishList />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/user" element={<User />} />
         <Route path="*" element={<Page404 />} />
         <Route path="loading" element={<Loading />} />
       </Routes>

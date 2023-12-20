@@ -70,12 +70,18 @@ input {
     border: none;
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 25px !important;
     padding: 10px 10px;
     width: 100%;
     margin: 5;
     margin-top: 5%;
     margin-bottom: 10%;
     font-weight: 600;
+    line-height: 36px !important;
+    height: 60px !important;
+}
 
+.login-form-item label {
+    font-size: 18px !important;
+    font-weight: 600 !important;
 }

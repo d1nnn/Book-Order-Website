@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,12 +10,38 @@ import {
   faCartShopping,
   faHeart,
   faList,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { is_authorzied } from "../../settings";
 
 const Header = () => {
-  // useEffect(() => {
-
-  // }, [])
+  const [login, setLogin] = useState();
+  // const {isLogin, SetIsLogin} = useState(false)
+  const authorized = async () => {
+    const a = await is_authorzied();
+    console.log(a);
+    if (a) {
+      setLogin(
+        <>
+          <Nav.Link as={Link} to="/user">
+            <FontAwesomeIcon icon={faUser} />
+          </Nav.Link>
+        </>
+      );
+      return;
+    }
+    setLogin(
+      <>
+        <Nav.Link as={Link} to="/login">
+          Login
+        </Nav.Link>
+      </>
+    );
+  };
+  useEffect(() => {
+    console.log("khoa");
+    authorized();
+  }, []);
   return (
     <div>
       <Navbar bg="dark" data-bs-theme="dark">
@@ -59,9 +85,7 @@ const Header = () => {
               <Nav.Link as={Link} to="/orders">
                 <FontAwesomeIcon icon={faList} />
               </Nav.Link>
-              <Nav.Link as={Link} to="/login">
-                Login
-              </Nav.Link>
+              {login}
             </Nav>
           </Nav>
         </Container>

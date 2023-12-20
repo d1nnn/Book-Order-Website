@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import "./Login.css";
 import BookDataService from "../../services/BookDataService";
 import { Form, Input, Checkbox, Button, Modal } from "antd";
@@ -11,14 +11,27 @@ const Login = () => {
   const [modalText, setModalText] = useState("");
   const navigate = useNavigate();
 
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // useEffect(() => {}, []);
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+  useEffect(() => {
+    const user = BookDataService.getCurrentUser();
+    console.log(user);
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, [currentUser]);
+
   const handleCancel = () => {
     console.log("Clicked cancel button");
     setOpen(false);
   };
 
-  const handleOk = () => {
+  const handleOk = async () => {
     console.log("Clicked ok button");
     setOpen(false);
+    // setCurrentUser(user);
   };
 
   const collapseLogin = () => {
@@ -34,13 +47,17 @@ const Login = () => {
     try {
       const res = await BookDataService.logIn(data);
       sessionStorage.setItem("accessToken", res.data.result.accessToken);
+      const user = BookDataService.getCurrentUser();
       setModalText("Sign in success");
       setOpen(true);
+      // console.log(us)
+      setCurrentUser(user);
       // setConfirmLoading(true);
+
       setTimeout(() => {
         setOpen(false);
         // setConfirmLoading(false);
-        navigate("/");
+        // navigate("/");
       }, 2000);
     } catch (error) {
       setModalText("Fail to sign in");

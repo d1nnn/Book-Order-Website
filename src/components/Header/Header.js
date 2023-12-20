@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -11,11 +11,24 @@ import {
   faHeart,
   faList,
 } from "@fortawesome/free-solid-svg-icons";
+import BookDataService from "../../services/BookDataService";
 
 const Header = () => {
-  // useEffect(() => {
+  const [currentUser, setCurrentUser] = useState(undefined);
 
-  // }, [])
+  useEffect(() => {
+    const user = BookDataService.getCurrentUser();
+    console.log(user);
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, [currentUser]);
+
+  const handleLogout = () => {
+    BookDataService.logOut();
+    setCurrentUser(undefined);
+  };
+
   return (
     <div>
       <Navbar bg="dark" data-bs-theme="dark">
@@ -59,9 +72,15 @@ const Header = () => {
               <Nav.Link as={Link} to="/orders">
                 <FontAwesomeIcon icon={faList} />
               </Nav.Link>
-              <Nav.Link as={Link} to="/login">
-                Login
-              </Nav.Link>
+              {currentUser ? (
+                <Nav.Link as={Link} onClick={handleLogout}>
+                  Logout
+                </Nav.Link>
+              ) : (
+                <Nav.Link as={Link} to="/login">
+                  Login
+                </Nav.Link>
+              )}
             </Nav>
           </Nav>
         </Container>

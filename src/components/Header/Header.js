@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -12,17 +12,10 @@ import {
   faList,
 } from "@fortawesome/free-solid-svg-icons";
 import BookDataService from "../../services/BookDataService";
+import { Context } from "../../App";
 
 const Header = () => {
-  const [currentUser, setCurrentUser] = useState(undefined);
-
-  useEffect(() => {
-    const user = BookDataService.getCurrentUser();
-    console.log(user);
-    if (user) {
-      setCurrentUser(user);
-    }
-  }, [currentUser]);
+  const [currentUser, setCurrentUser] = useContext(Context);
 
   const handleLogout = () => {
     BookDataService.logOut();

@@ -12,17 +12,7 @@ const Login = () => {
   const [modalText, setModalText] = useState("");
   const navigate = useNavigate();
 
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // useEffect(() => {}, []);
   const [currentUser, setCurrentUser] = useContext(Context);
-
-  // useEffect(() => {
-  //   const user = BookDataService.getCurrentUser();
-  //   console.log(user);
-  //   if (user) {
-  //     setCurrentUser(user);
-  //   }
-  // }, [currentUser]);
 
   const handleCancel = () => {
     console.log("Clicked cancel button");
@@ -32,7 +22,6 @@ const Login = () => {
   const handleOk = async () => {
     console.log("Clicked ok button");
     setOpen(false);
-    // setCurrentUser(user);
   };
 
   const collapseLogin = () => {
@@ -58,7 +47,7 @@ const Login = () => {
       setTimeout(() => {
         setOpen(false);
         // setConfirmLoading(false);
-        // navigate("/");
+        navigate("/");
       }, 2000);
     } catch (error) {
       setModalText("Fail to sign in");

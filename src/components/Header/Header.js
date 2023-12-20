@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -18,9 +18,7 @@ const Header = () => {
   const [login, setLogin] = useState();
   // const {isLogin, SetIsLogin} = useState(false)
   const authorized = async () => {
-    const a = await is_authorzied();
-    console.log(a);
-    if (a) {
+    if (await is_authorzied()) {
       setLogin(
         <>
           <Nav.Link as={Link} to="/user">
@@ -84,12 +82,20 @@ const Header = () => {
               <Nav.Link as={Link} to="/orders">
                 <FontAwesomeIcon icon={faList} />
               </Nav.Link>
-              {login}
-            </Nav>
-          </Nav>
-        </Container>
-      </Navbar>
-    </div>
+              {currentUser ? (
+                <Nav.Link as={Link} onClick={handleLogout}>
+                  Logout
+                </Nav.Link>
+              ) : (
+                <Nav.Link as={Link} to="/login">
+                  Login
+                </Nav.Link>
+              )}
+            </Nav >
+          </Nav >
+        </Container >
+      </Navbar >
+    </div >
   );
 };
 

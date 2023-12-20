@@ -1,9 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect, useState } from "react";
+import Navbar from "react-bootstrap/Navbar";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Banner from "./components/Banner/Banner";
 import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
 import AboutUs from "./pages/about-us/AboutUs";
 import Authors from "./pages/authors/Authors";
@@ -19,8 +20,27 @@ import Products from "./pages/products/Products";
 import ProductsList from "./pages/productsList/ProductsList";
 import Promotions from "./pages/promotions/Promotions";
 import WishList from "./pages/wishlist/WishList";
+import BookDataService from "./services/BookDataService";
+import Container from "react-bootstrap/Container";
+import { Link } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCartShopping,
+  faHeart,
+  faList,
+} from "@fortawesome/free-solid-svg-icons";
+import Header from "./components/Header/Header";
+export const Context = React.createContext();
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(false);
+
+  const handleLogout = () => {
+    BookDataService.logOut();
+    setCurrentUser(undefined);
+  };
+
   return (
     <div>
       <Header />

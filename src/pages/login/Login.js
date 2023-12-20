@@ -1,8 +1,9 @@
-import { React, useState } from "react";
+import { React, useContext, useEffect, useState } from "react";
 import "./Login.css";
 import BookDataService from "../../services/BookDataService";
 import { Form, Input, Checkbox, Button, Modal } from "antd";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../../App";
 
 const Login = () => {
   const [openLogin, setOpenLogin] = useState(false);
@@ -11,12 +12,14 @@ const Login = () => {
   const [modalText, setModalText] = useState("");
   const navigate = useNavigate();
 
+  const [currentUser, setCurrentUser] = useContext(Context);
+
   const handleCancel = () => {
     console.log("Clicked cancel button");
     setOpen(false);
   };
 
-  const handleOk = () => {
+  const handleOk = async () => {
     console.log("Clicked ok button");
     setOpen(false);
   };

@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./Orders.css";
 import BookDataService from "../../services/BookDataService";
+import { NavLink } from "react-router-dom";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [productBuyed, setProductBuyed] = useState([]);
+  // const productBuyed = retrieveProductBuyed();
 
   useEffect(() => {
     retrieveOrders();
-  });
+    retrieveProductBuyed();
+  }, []);
 
   const retrieveOrders = () => {
     BookDataService.getOrders()
@@ -20,12 +24,23 @@ const Orders = () => {
       });
   };
 
+  const retrieveProductBuyed = () => {
+    BookDataService.getProductBuyed()
+      .then((res) => {
+        console.log(res.data);
+        setProductBuyed(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   return (
     <>
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h1>Orders</h1>
+            <h1>Ordered</h1>
           </div>
         </div>
       </div>
@@ -36,26 +51,34 @@ const Orders = () => {
             <thead style={{ width: "100%" }}>
               <tr>
                 <th span="1" style={{ width: "20%" }} scope="col">
-                  Order No.
+                  Name
                 </th>
-                <th span="1" style={{ width: "10%" }} scope="col">
-                  Amount
+                <th span="1" style={{ width: "20%" }} scope="col">
+                  Image
+                </th>
+                <th span="1" style={{ width: "20%" }} scope="col">
+                  Price
                 </th>
               </tr>
             </thead>
             {/* start map */}
-            {orders.map((order, i) => {
-              return (
-                <>
-                  <tbody>
-                    <tr key={order._id}>
-                      <td>{order.payment}</td>
-                      <td>{order.total}$</td>
+            <tbody>
+              {productBuyed.map((p, i) => {
+                return (
+                  <>
+                    <tr key={p._id}>
+                      <td>{p.name}</td>
+                      <td>
+                        <NavLink to={`../products/${p._id}`}>
+                          <img src={p.imageUrl} />
+                        </NavLink>
+                      </td>
+                      <td>{p.price}</td>
                     </tr>
-                  </tbody>
-                </>
-              );
-            })}
+                  </>
+                );
+              })}
+            </tbody>
             {/* end map */}
           </table>
         </div>

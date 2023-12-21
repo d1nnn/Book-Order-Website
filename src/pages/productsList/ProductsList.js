@@ -26,7 +26,6 @@ const ProductsList = () => {
   };
 
   const retrieveProducts = () => {
-    // ;
     BookDataService.getAllProducts()
       .then((res) => {
         setProducts(res.data);
@@ -44,7 +43,7 @@ const ProductsList = () => {
       <div className="searchbar">
         <input
           type="search"
-          placeholder="Tìm kiếm"
+          placeholder="Search your books"
           id="searchbar"
           onChange={(e) => handleChange(e)}
         />

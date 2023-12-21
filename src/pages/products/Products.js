@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import BookDataService from "../../services/BookDataService";
 import { useParams } from "react-router-dom";
 import "./Products.css";
@@ -13,12 +13,15 @@ import {
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import { Context } from "../../App";
+import { useColStyle } from "antd/es/grid/style";
 
 const Products = () => {
   const params = useParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   // const [isDownloadable, setIsDownloadable] = useState();
+  const [currentUser, setCurrentUser] = useContext(Context);
 
   useEffect(() => {
     getProducts(params.id);
@@ -91,16 +94,20 @@ const Products = () => {
             <div class="btnantd">
               <>
                 {/* Button trigger modal */}
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#wishListModal"
-                  onClick={postWishList}
-                >
-                  <icon>{<HeartOutlined />}</icon>
-                  Add to Wishlist
-                </button>
+                {currentUser ? (
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#wishListModal"
+                    onClick={postWishList}
+                  >
+                    <icon>{<HeartOutlined />}</icon>
+                    Add to Wishlist
+                  </button>
+                ) : (
+                  <></>
+                )}
                 {/* Modal */}
                 <div
                   className="modal fade"

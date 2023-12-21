@@ -82,6 +82,15 @@ export const BookDataService = {
       headers: await get_header(),
     });
   },
+  getCurrentUser: () => {
+    return sessionStorage.getItem(
+      "accessToken" || sessionStorage.getItem("sessionID")
+    );
+  },
+  logOut: () => {
+    sessionStorage.removeItem("accessToken");
+    sessionStorage.removeItem("sessionID");
+  },
 };
 
 export default BookDataService;

@@ -11,6 +11,7 @@ const Login = () => {
   const [open, setOpen] = useState(false);
   const [modalText, setModalText] = useState("");
   const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useContext(Context);
 
   const handleCancel = () => {
     console.log("Clicked cancel button");
@@ -35,11 +36,13 @@ const Login = () => {
     try {
       const res = await BookDataService.logIn(data);
       sessionStorage.setItem("accessToken", res.data.result.accessToken);
+      const user = BookDataService.getCurrentUser();
       setModalText("Sign in success");
       setOpen(true);
+      setCurrentUser(user);
       setTimeout(() => {
         setOpen(false);
-        window.location.reload();
+        // window.location.reload();
         navigate("/");
       }, 2000);
     } catch (error) {

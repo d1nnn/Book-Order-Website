@@ -31,32 +31,41 @@ import {
   faList,
 } from "@fortawesome/free-solid-svg-icons";
 import Header from "./components/Header/Header";
+
 export const Context = React.createContext();
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(false);
+  const handleLogout = () => {
+    BookDataService.logOut();
+    setCurrentUser(undefined);
+  };
+
   return (
-    <div>
-      <Header />
-      <Banner />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<ProductsList />} />
-        <Route path="/products/:id" element={<Products />} />
-        <Route path="/promotions" element={<Promotions />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/authors" element={<AuthorsList />} />
-        <Route path="/authors/:id" element={<Authors />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/wishlist" element={<WishList />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/user" element={<User />} />
-        <Route path="*" element={<Page404 />} />
-        <Route path="loading" element={<Loading />} />
-      </Routes>
-      <Footer />
-    </div>
+    <Context.Provider value={[currentUser, setCurrentUser]}>
+      <div>
+        <Header />
+        <Banner />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductsList />} />
+          <Route path="/products/:id" element={<Products />} />
+          <Route path="/promotions" element={<Promotions />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/authors" element={<AuthorsList />} />
+          <Route path="/authors/:id" element={<Authors />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<WishList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/user" element={<User />} />
+          <Route path="*" element={<Page404 />} />
+          <Route path="loading" element={<Loading />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Context.Provider>
   );
 }
 

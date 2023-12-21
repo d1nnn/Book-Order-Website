@@ -10,18 +10,34 @@ import {
   faCartShopping,
   faHeart,
   faList,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import BookDataService from "../../services/BookDataService";
-import { Context } from "../../App";
+import { is_authorzied } from "../../settings";
 
 const Header = () => {
-  const [currentUser, setCurrentUser] = useContext(Context);
-
-  const handleLogout = () => {
-    BookDataService.logOut();
-    setCurrentUser(undefined);
+  const [login, setLogin] = useState();
+  const authorized = async () => {
+    if (await is_authorzied()) {
+      setLogin(
+        <>
+          <Nav.Link as={Link} to="/user">
+            <FontAwesomeIcon icon={faUser} />
+          </Nav.Link>
+        </>
+      );
+      return;
+    }
+    setLogin(
+      <>
+        <Nav.Link as={Link} to="/login">
+          Login
+        </Nav.Link>
+      </>
+    );
   };
-
+  useEffect(() => {
+    authorized();
+  }, []);
   return (
     <div>
       <Navbar bg="dark" data-bs-theme="dark">
@@ -65,20 +81,12 @@ const Header = () => {
               <Nav.Link as={Link} to="/orders">
                 <FontAwesomeIcon icon={faList} />
               </Nav.Link>
-              {currentUser ? (
-                <Nav.Link as={Link} onClick={handleLogout}>
-                  Logout
-                </Nav.Link>
-              ) : (
-                <Nav.Link as={Link} to="/login">
-                  Login
-                </Nav.Link>
-              )}
-            </Nav>
-          </Nav>
-        </Container>
-      </Navbar>
-    </div>
+              {login}
+            </Nav >
+          </Nav >
+        </Container >
+      </Navbar >
+    </div >
   );
 };
 

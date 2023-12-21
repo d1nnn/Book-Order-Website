@@ -18,6 +18,7 @@ const Products = () => {
   const params = useParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  // const [isDownloadable, setIsDownloadable] = useState();
 
   useEffect(() => {
     getProducts(params.id);
@@ -188,11 +189,19 @@ const Products = () => {
                 </div>
               </>
 
-              <Link to={products.url && products.url[0]} target="_blank">
-                <Button type="dashed" icon={<DownloadOutlined />} size="large">
-                  Download
-                </Button>
-              </Link>
+              {products.url ? (
+                <Link to={products.url && products.url[0]} target="_blank">
+                  <Button
+                    type="dashed"
+                    icon={<DownloadOutlined />}
+                    size="large"
+                  >
+                    Download
+                  </Button>
+                </Link>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </div>

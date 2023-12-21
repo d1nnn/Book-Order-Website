@@ -3,8 +3,15 @@
 
 }
 
-.user-hello h2,
-.ant-card-head-title {
+.user-hello h2 {
+    padding-top: 50px;
+    padding-bottom: 30px;
+    font-size: 25px;
+    color: #3a4059;
+    text-align: center;
+}
+
+.user-hello .ant-card-head-title {
     padding-top: 50px;
     padding-bottom: 30px;
     font-size: 25px;
@@ -35,7 +42,7 @@
     font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
-.ant-card .ant-card-body {
+.change-pass .ant-card .ant-card-body {
     padding-left: 15%;
     padding-right: 15%;
 }
@@ -46,7 +53,16 @@
     color: #353b57;
 }
 
-.user-form .ant-input,
+.user-form .ant-input {
+    background-color: #fafafc;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #c3c7d9;
+    border-radius: 0;
+    transition: all 0.2s;
+    line-height: 2.5;
+}
+
 .user-form .ant-input-password {
     background-color: #fafafc;
     border-width: 1px;

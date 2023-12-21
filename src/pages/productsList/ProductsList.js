@@ -12,24 +12,17 @@ const getFilteredItems = (query, products) => {
 
 const ProductsList = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
-  // const [filteredItems, setFilteredItems] = useState([]);
-
   const filteredItems = getFilteredItems(query, products);
 
   useEffect(() => {
     retrieveProducts();
   });
 
-  // useEffect(() => {
-  //   setFilteredItems(getFilteredItems(query, products));
-  // }, [query]);
-
   const handleChange = (e) => {
     const value = e.target.value;
     setQuery(value);
-    // setFilteredItems(getFilteredItems(query, products));
   };
 
   const retrieveProducts = () => {
@@ -46,7 +39,7 @@ const ProductsList = () => {
 
   return (
     <div>
-      {/* {loading && <Loading />} */}
+      {loading && <Loading />}
       <h1 className="chonmon">Pick your books!</h1>
       <div className="searchbar">
         <input
@@ -75,28 +68,3 @@ const ProductsList = () => {
 };
 
 export default ProductsList;
-
-// : products.maps((product, i) => {
-//   return (
-//     <div key={i} className="sanpham_item">
-//       <NavLink to={`${product._id}`}>
-//         <img src={`${product.imageUrl}`} alt="" />
-//         <p>{product.name}</p>
-//       </NavLink>
-//     </div>
-//   );
-// })}
-
-{
-  /* {filteredItems? */
-}
-// : products.maps((product, i) => {
-//   return (
-//     <div key={i} className="sanpham_item">
-//       <NavLink to={`${product._id}`}>
-//         <img src={`${product.imageUrl}`} alt="" />
-//         <p>{product.name}</p>
-//       </NavLink>
-//     </div>
-//   );
-// })}

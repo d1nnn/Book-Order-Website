@@ -111,7 +111,7 @@ export default () => {
                 }}
               >
                 <Space direction="vertical" style={{ width: "100%" }} size={40}>
-                  <Row>
+                  <Row className="change-pass">
                     <Card
                       title="My details"
                       bordered={false}
@@ -174,7 +174,7 @@ export default () => {
                       </Form>
                     </Card>
                   </Row>
-                  <Row>
+                  <Row className="change-pass">
                     <Card
                       title="Change password"
                       bordered={false}

@@ -10,7 +10,7 @@ const WishList = () => {
 
   useEffect(() => {
     retrieveWishList();
-  }, []);
+  }, [wishList]);
 
   const retrieveWishList = () => {
     BookDataService.getWishList()
@@ -29,6 +29,11 @@ const WishList = () => {
     };
     BookDataService.postCarts(data);
     console.log(data);
+  };
+
+  const delWishList = (id) => {
+    BookDataService.delWishList(id);
+    console.log(id);
   };
 
   return (
@@ -128,7 +133,14 @@ const WishList = () => {
                         </div>
                       </td>
                       <td>
-                        <button className="btn btn-danger">Remove</button>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => {
+                            delWishList(wl._id);
+                          }}
+                        >
+                          Remove
+                        </button>
                       </td>
                     </tr>
                   </tbody>

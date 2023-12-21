@@ -7,7 +7,7 @@ import Loading from "../../components/Loading/Loading";
 const ProductsList = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const [input, setInput] = useState("");
   useEffect(() => {
     retrieveProducts();
   }, []);
@@ -18,10 +18,21 @@ const ProductsList = () => {
       .then((res) => {
         setProducts(res.data);
         setLoading(false);
+        // const data = res.data;
       })
+      // .then((data) => {
+      //   const results = data.filter((book) => {
+      //     return {};
+      //   });
+      // })
       .catch((e) => {
         console.log(e);
       });
+  };
+
+  const handleChange = (value) => {
+    setInput(value);
+    retrieveProducts(value);
   };
 
   return (
@@ -29,7 +40,12 @@ const ProductsList = () => {
       {loading && <Loading />}
       <h1 className="chonmon">Pick your books!</h1>
       <div className="searchbar">
-        <input type="search" placeholder="Tìm kiếm" id="searchbar" />
+        <input
+          type="search"
+          placeholder="Tìm kiếm"
+          id="searchbar"
+          // onChange={(e) => handleChange(e.target.value)}
+        />
       </div>
       <section className="sanpham">
         <div className="sanpham_left" id="spl">

@@ -52,7 +52,11 @@ export const BookDataService = {
       headers: await get_header(),
     });
   },
-
+  delWishList: async (id) => {
+    return axios.delete(`${url}/wishlist/${id}`, {
+      headers: await get_header(),
+    });
+  },
   logIn: async (data) => {
     return await axios.post(`${url}/auth/login`, data);
   },

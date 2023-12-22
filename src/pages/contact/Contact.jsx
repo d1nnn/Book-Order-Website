@@ -28,7 +28,7 @@ const Contact = () => {
           </ul>
         </div>
       </div>
-      <div className="content py-5">
+      <div className="content">
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-4">

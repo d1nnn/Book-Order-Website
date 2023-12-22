@@ -83,7 +83,7 @@ const PromotionContent = () => {
                 className="des"
                 dangerouslySetInnerHTML={{ __html: proContent.content }}
               />
-              <div className="author">
+              <div className="author1">
                 <div
                   className="des"
                   dangerouslySetInnerHTML={{ __html: proContent.id }}

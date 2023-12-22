@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Side = () => {
   return (
-    <div className="thuy_side">
+    <div>
       <div className="aside-div-component">
         <div className="blog-div">
           <h3>New blog</h3>
@@ -13,6 +13,7 @@ const Side = () => {
             <div className="row">
               <div className="col-4">
                 <img
+                  className="sideimg"
                   src={require("../../assets/promotion-birthday-banner.jpg")}
                   alt="promtion"
                 />
@@ -30,6 +31,7 @@ const Side = () => {
             <div className="row">
               <div className="col-4">
                 <img
+                  className="sideimg"
                   src={require("../../assets/promotion-banner1.jpg")}
                   alt="promtion"
                 />

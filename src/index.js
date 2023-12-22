@@ -4,6 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "@fontsource/open-sans"; // Defaults to weight 400
+import "@fontsource/open-sans/600.css"; // Specify weight
+import "@fontsource/open-sans/700.css"; // Specify weight
+import "@fontsource/open-sans/800.css"; // Specify weight
+import "@fontsource/open-sans/400-italic.css"; // Specify weight and style
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

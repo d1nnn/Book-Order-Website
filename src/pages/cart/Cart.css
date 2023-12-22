@@ -1,0 +1,91 @@
+.cart-wrapper * {
+  font-family: "TiemposText", serif;
+}
+
+.cart-title {
+  font-family: "TiemposHeadline", serif;
+  font-weight: 600;
+}
+
+.cart-list-parent {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  /* border: 1px solid #c5c9db; */
+}
+
+.cart-list-parent2 * {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.cart-list-child {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  border: 2px solid #c5c9db;
+}
+
+.cart-list-child * {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+
+}
+
+.item-wrapper * {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & img {
+    height: 15%;
+    width: 15%;
+  }
+}
+
+.inp {
+  margin: 0 0 1em 0;
+}
+
+h5 {
+  color: #3a4059;
+}
+
+.cart-form-parent * {
+  padding-left: 10px;
+}
+
+.cart-form-parent {
+  padding-top: 20px;
+}
+
+.cart-form label {
+  color: #3b3f54 !important;
+  font-size: 20px !important;
+  padding-left: 20px;
+  font-weight: 700;
+}
+
+.cart-form input {
+  color: #3b3f54 !important;
+  font-size: 20px !important;
+  padding-left: 20px;
+  font-weight: 600;
+  width: 85%;
+  height: 60px;
+  border-radius: 0;
+  border-color: #353b57 !important;
+  background-color: #fafafc !important;
+}
+
+
+.cart-row {
+  font-size: 20px;
+  padding-left: 60px;
+  font-weight: 700;
+  color: #252e52;
+}
+
+.cart-info {
+  padding-top: 30px;
+}

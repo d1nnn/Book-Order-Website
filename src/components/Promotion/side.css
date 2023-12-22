@@ -1,25 +1,27 @@
-.aside-div-component{
+.thuy_side {
+  & .aside-div-component {
     width: 100%;
-}
-.navlink{
+  }
+  & .navlink {
     text-decoration: none;
     color: rgb(56, 41, 2);
     font-weight: bold;
-}
-h3{
+  }
+  &h3 {
     text-align: center;
-}
-.nav-div-component{
+  }
+  &.nav-div-component {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1em;
     margin-bottom: 2rem;
-}
-.blog-div .col-4{
+  }
+  & .blog-div .col-4 {
     width: 33%;
-}
-img{
+  }
+  &img {
     width: 100%;
     object-fit: contain;
+  }
 }

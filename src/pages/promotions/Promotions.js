@@ -52,24 +52,23 @@ const Promotions = () => {
   return (
     <div>
       <h1>Promotions</h1>
-      <div className="container">
+      <div className="thuy_container">
         {objectsArray.map((pro, i) => {
           return (
             <>
               <NavLink to={`/promotions/${pro.id}`} className={"navlink"}>
-                <div className="card">
-                  <div className="card-img">
+                <div className="thuy_card">
+                  <div className="thuy_card-img">
                     <img
                       src={require("../../assets/" + pro.imgUrl + ".jpg")}
                       alt="promotion-dec"
                     />
                   </div>
-                  <div className="card-content-title">
+                  <div className="thuy_card-content-title">
                     <h5>{pro.title}</h5>
-                    <p className="content-author">
+                    <p className="thuy_content-author">
                       Người viết : BaBook - {date}{" "}
                     </p>
-
                     <p className="content-body">{pro.content}</p>
                   </div>
                 </div>

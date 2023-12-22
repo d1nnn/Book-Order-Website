@@ -1,49 +1,49 @@
-.container{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+.thuy_container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
-.navlink{
-    width: 24%;
+.navlink {
+  width: 24%;
 }
-.card{
-    width: 100%;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
-    border: 0;
+.thuy_card {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  border: 0;
 }
-.card-img{
-    width: 100%;
+.thuy_card-img {
+  width: 100%;
 }
-.card-img img{
-    object-fit: contain;
-    width: 100%;
+.thuy_card-img img {
+  object-fit: contain;
+  width: 100%;
 }
-.navlink{
-    text-decoration: none;
-    color: brown;
+.thuy_navlink {
+  text-decoration: none;
+  color: brown;
 }
-.card-content-title h5{
-    text-align: center;
-    margin-top: 10px;
+.thuy_card-content-title h5 {
+  text-align: center;
+  margin-top: 10px;
 }
-.card-content-title p.content-author{
-    text-align: center;
-    margin-top: 10px;
-    color: darkgray;
+.card-content-title p.content-author {
+  text-align: center;
+  margin-top: 10px;
+  color: darkgray;
 }
-.card-content-title p.content-body{
-    margin: 0 10px;
+.card-content-title p.content-body {
+  margin: 0 10px;
 }
-.promotion-content{
-    margin: 2rem;
-    width: 95%;
+.promotion-content {
+  margin: 2rem;
+  width: 95%;
 }
-.p-c{
-    width: 75%;
+.p-c {
+  width: 75%;
 }
-aside{
-    float: right;
-    width: 20%;
-    margin-left: 20px;
+aside {
+  float: right;
+  width: 20%;
+  margin-left: 20px;
 }

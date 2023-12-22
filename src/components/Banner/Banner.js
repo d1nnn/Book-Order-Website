@@ -9,7 +9,7 @@ const Banner = () => {
           <div className="crs_img">
             <img
               className="carousel_img"
-              src={require("../../assets/book-banner111.jpg")}
+              src={require("../../assets/book-bannerf.jpg")}
             />
           </div>
           <div className="crs_caption">
@@ -20,7 +20,7 @@ const Banner = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <img className="" src={require("../../assets/book-banner22.jpg")} />
+          <img className="" src={require("../../assets/book-bannerf2.jpg")} />
           <Carousel.Caption>
             <h3>Best books for you!</h3>
             <p>

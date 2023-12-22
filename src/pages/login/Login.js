@@ -131,9 +131,8 @@ const Login = () => {
             <div className="collapse-body">
               <div class="detailArea">
                 <Form
-                  initialValues={{ remember: true }}
                   onFinish={onSignupinish}
-                  autoComplete="on"
+                  autoComplete="off"
                   layout="vertical"
                 >
                   <Form.Item

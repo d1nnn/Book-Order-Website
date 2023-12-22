@@ -52,7 +52,6 @@ const Promotions = () => {
   const [proContent, setProContent] = useState(objectsArray);
 
   return (
-    // <Context.Provider value={[proContent, setProContent]}>
     <div>
       <h1>Promotions</h1>
       <div className="thuy_container">
@@ -72,7 +71,11 @@ const Promotions = () => {
                     <p className="thuy_content-author">
                       Người viết : BaBook - {date}{" "}
                     </p>
-                    <p className="content-body">{pro.content}</p>
+                    <div
+                      className="thuy_content-body"
+                      dangerouslySetInnerHTML={{ __html: pro.content }}
+                    />
+                    {/* <p className="content-body">{pro.content}</p> */}
                   </div>
                 </div>
               </NavLink>
@@ -86,69 +89,3 @@ const Promotions = () => {
 };
 
 export default Promotions;
-{
-  /* 
-              <NavLink to="/promotions/2" className={"navlink"}>
-                <div className="card">
-                  <div className="card-img">
-                    <img
-                      src={require("../../assets/promotion-birthday-banner.jpg")}
-                      alt="promotion"
-                    />
-                  </div>
-                  <div className="card-content-title">
-                    <h5>BaBook Sale Birthday</h5>
-                    <p className="content-author">
-                      Người viết : BaBook - {date}{" "}
-                    </p>
-                    <p className="content-body">
-                      <b>BaBook</b> khuyến mãi dịp Sinh nhật, nhiều ưu đãi hấp
-                      dẫn. Đăng kí thành viên, được tặng quà hấp dẫn.
-                    </p>
-                  </div>
-                </div>
-              </NavLink>
-
-              <NavLink to="/promotions/3" className={"navlink"}>
-                <div className="card">
-                  <div className="card-img">
-                    <img
-                      src={require("../../assets/promotion-banner.jpeg")}
-                      alt="promotion"
-                    />
-                  </div>
-                  <div className="card-content-title">
-                    <h5>BaBook Share Hobby - Share Money</h5>
-                    <p className="content-author">
-                      Người viết : BaBook - {date}{" "}
-                    </p>
-                    <p className="content-body">
-                      Hãy cùng chia sẻ quyển sách yêu thích của bạn với{" "}
-                      <b>BaBook</b>. Cơ hội mua những đấu sách hot hiện nay với
-                      giá <b>1đ</b>.
-                    </p>
-                  </div>
-                </div>
-              </NavLink>
-
-              <NavLink to="/promotions/4" className={"navlink"}>
-                <div className="card">
-                  <div className="card-img">
-                    <img
-                      src={require("../../assets/promotion-banner1.jpeg")}
-                      alt="promotion"
-                    />
-                  </div>
-                  <div className="card-content-title">
-                    <h5>BaBook - Bookworm</h5>
-                    <p className="content-author">
-                      Người viết : BaBook - {date}{" "}
-                    </p>
-                    <p className="content-body">
-                      Tháng của mọt sách,<b>BaBook</b> khuyến mãi với hoá đơn từ
-                      100.000VND.
-                    </p>
-                  </div>
-                </div>
-              </NavLink> */
-}

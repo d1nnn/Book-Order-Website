@@ -79,11 +79,15 @@ const PromotionContent = () => {
                   alt="promotion"
                 />
               </div>
-              <p>{proContent.content}</p>
+              <div
+                className="des"
+                dangerouslySetInnerHTML={{ __html: proContent.content }}
+              />
               <div className="author">
-                <p>
-                  BaBook - {date} - {proContent.id}
-                </p>
+                <div
+                  className="des"
+                  dangerouslySetInnerHTML={{ __html: proContent.id }}
+                />
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+  padding: 0 2em 0 2em;
 }
 .navlink {
   width: 24%;
@@ -27,12 +28,12 @@
   text-align: center;
   margin-top: 10px;
 }
-.card-content-title p.content-author {
+.thuy_content-author {
   text-align: center;
   margin-top: 10px;
   color: darkgray;
 }
-.card-content-title p.content-body {
+.thuy_content-body {
   margin: 0 10px;
 }
 .promotion-content {

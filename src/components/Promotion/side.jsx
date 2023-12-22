@@ -44,30 +44,6 @@ const Side = () => {
         </NavLink>
       </div>
       <br />
-      <div>
-        <h3>Menu page</h3>
-        <hr />
-        <div className="nav-div-component">
-          <NavLink className={"navlink"} to={"/"}>
-            Home
-          </NavLink>
-          <NavLink className={"navlink"} to={"/products"}>
-            Products
-          </NavLink>
-          <NavLink className={"navlink"} to={"/news"}>
-            News
-          </NavLink>
-          <NavLink className={"navlink"} to={"/promotions"}>
-            Promotions
-          </NavLink>
-          <NavLink className={"navlink"} to={"/about-us"}>
-            AboutUs
-          </NavLink>
-          <NavLink className={"navlink"} to={"/contact"}>
-            Contact
-          </NavLink>
-        </div>
-      </div>
     </div>
   );
 };

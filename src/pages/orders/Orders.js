@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Orders.css";
 import BookDataService from "../../services/BookDataService";
 import { NavLink } from "react-router-dom";
+import "./Orders.css";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -48,13 +49,13 @@ const Orders = () => {
       <div className="row">
         <div className="col-12">
           <table className="table table-hover">
-            <thead style={{ width: "100%" }}>
+            <thead className="thead1" style={{ width: "100%" }}>
               <tr>
                 <th span="1" style={{ width: "20%" }} scope="col">
                   Name
                 </th>
                 <th span="1" style={{ width: "20%" }} scope="col">
-                  Image
+                  Cover
                 </th>
                 <th span="1" style={{ width: "20%" }} scope="col">
                   Price
@@ -70,7 +71,7 @@ const Orders = () => {
                       <td>{p.name}</td>
                       <td>
                         <NavLink to={`../products/${p._id}`}>
-                          <img src={p.imageUrl} />
+                          <img className="img" src={p.imageUrl} />
                         </NavLink>
                       </td>
                       <td>{p.price}</td>

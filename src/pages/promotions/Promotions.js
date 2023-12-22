@@ -49,7 +49,10 @@ const objectsArray = [
 ];
 
 const Promotions = () => {
+  const [proContent, setProContent] = useState(objectsArray);
+
   return (
+    // <Context.Provider value={[proContent, setProContent]}>
     <div>
       <h1>Promotions</h1>
       <div className="thuy_container">
@@ -78,6 +81,7 @@ const Promotions = () => {
         })}
       </div>
     </div>
+    // </Context.Provider>
   );
 };
 

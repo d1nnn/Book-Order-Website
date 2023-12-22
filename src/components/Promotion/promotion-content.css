@@ -1,0 +1,30 @@
+.container-component{
+    margin: 3rem;
+}
+.content-promotion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content-promotion p{
+    text-align: justify;
+}
+.img-div{
+    width: 90%;
+    display: flex;
+}
+.img-div img{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.author{
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+    color: darkgray;
+    font-style: italic;
+    width: 100%;
+}

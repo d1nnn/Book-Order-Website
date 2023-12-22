@@ -31,6 +31,7 @@ import {
   faList,
 } from "@fortawesome/free-solid-svg-icons";
 import Header from "./components/Header/Header";
+import PromotionContent from "./components/Promotion/promotion-content";
 
 export const Context = React.createContext();
 
@@ -40,7 +41,6 @@ function App() {
     BookDataService.logOut();
     setCurrentUser(undefined);
   };
-
   return (
     <Context.Provider value={[currentUser, setCurrentUser]}>
       <div>
@@ -51,6 +51,7 @@ function App() {
           <Route path="/products" element={<ProductsList />} />
           <Route path="/products/:id" element={<Products />} />
           <Route path="/promotions" element={<Promotions />} />
+          <Route path="/promotions/:id" element={<PromotionContent />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />

@@ -20,7 +20,7 @@ export default () => {
   const handleOk = () => {
     console.log("Clicked ok button");
     setOpen(false);
-    navigate(0);
+    // navigate(0);
   };
 
   useEffect(() => {

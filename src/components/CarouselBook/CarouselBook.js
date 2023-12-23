@@ -87,7 +87,7 @@ class CarouselBook extends Component {
           key={item.src}
         >
           <div className="carouselCont">
-            <div className="img">
+            <div className="img5">
               <img
                 width="100%"
                 src={require(`${item.src}`)}

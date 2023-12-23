@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Authors.css";
+import "./AuthorsList.css";
 import { NavLink } from "react-router-dom";
 import BookDataService from "../../services/BookDataService";
 import Loading from "../../components/Loading/Loading";

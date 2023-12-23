@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "./Banner.css";
+
 const Banner = () => {
   return (
     <div>
@@ -20,7 +21,10 @@ const Banner = () => {
           </div>
         </Carousel.Item>
         <Carousel.Item>
-          <img className="" src={require("../../assets/book-bannerf2.jpg")} />
+          <img
+            className="carousel_img"
+            src={require("../../assets/book-bannerf2.jpg")}
+          />
           <Carousel.Caption>
             <h3>Best books for you!</h3>
             <p>
@@ -30,7 +34,10 @@ const Banner = () => {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img className="" src={require("../../assets/book-bannerf3.jpg")} />
+          <img
+            className="carousel_img"
+            src={require("../../assets/book-bannerf3.jpg")}
+          />
           <Carousel.Caption>
             <h3>Lots of books!</h3>
             <p>

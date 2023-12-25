@@ -8,14 +8,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* height: 25%; */
 }
 
 .ImgCont {
-  /* float: left; */
   width: 45%;
   height: 45%;
-  /* padding: 10em; */
 }
 
 .TextCont {
@@ -25,13 +22,6 @@
   width: 50%;
 }
 
-/* .carousel-caption { 
-  /* position: relative; */
-/* top: 0; */
-/* height: 100%; */
-/* width: 75%; 
-}*/
-
 .TextCont p {
   color: black;
 }
@@ -39,24 +29,3 @@
 .TextCont h3 {
   color: black;
 }
-
-/* .carousel-control-prev-icon,
-.carousel-control-next-icon {
-  height: 100px;
-  width: 100px;
-  outline: black;
-  background-size: 100%, 100%;
-  background-image: none;
-}
-
-.carousel-control-next-icon:after {
-  content: ">";
-  font-size: 55px;
-  color: black;
-}
-
-.carousel-control-prev-icon:after {
-  content: "<";
-  font-size: 55px;
-  color: white;
-} */

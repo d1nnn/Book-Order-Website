@@ -57,19 +57,6 @@ const Products = () => {
     console.log(data);
   };
 
-  // const handleDownload = () => {
-  //   try {
-  //     const response = fetch(url);
-  //     const blob = response.blob();
-  //     const link = document.createElement("a");
-  //     link.href = URL.createObjectURL(blob);
-  //     link.download = "your_file_name.pdf"; // Set the desired file name
-  //     link.click();
-  //   } catch (error) {
-  //     console.error("Error downloading file:", error);
-  //   }
-  // };
-
   return (
     <>
       {loading ? (
@@ -82,7 +69,6 @@ const Products = () => {
           <div className="products_content">
             <h1>{products.name}</h1>
             <h2>{products.category}</h2>
-            {/* <h3>{products.Education}</h3> */}
 
             <div
               className="des"
@@ -138,9 +124,6 @@ const Products = () => {
                         >
                           Close
                         </button>
-                        {/* <button type="button" className="btn btn-primary">
-                          Save changes
-                        </button> */}
                       </div>
                     </div>
                   </div>
@@ -187,9 +170,6 @@ const Products = () => {
                         >
                           Close
                         </button>
-                        {/* <button type="button" className="btn btn-primary">
-                          Save changes
-                        </button> */}
                       </div>
                     </div>
                   </div>

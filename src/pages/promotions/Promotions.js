@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./promotions.css";
-import { Routes, Route, Link, NavLink, useParams } from "react-router-dom";
 
 const today = new Date();
 let date =

@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
-import "./ProductsList.css";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import BookDataService from "../../services/BookDataService";
 import Loading from "../../components/Loading/Loading";
+import BookDataService from "../../services/BookDataService";
+import "./ProductsList.css";
 
 const getFilteredItems = (query, products) => {
   if (!query) return products;

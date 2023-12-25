@@ -1,11 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useEffect, useState } from "react";
-import Navbar from "react-bootstrap/Navbar";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Banner from "./components/Banner/Banner";
 import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
+import PromotionContent from "./components/Promotion/promotion-content";
 import AboutUs from "./pages/about-us/AboutUs";
 import Authors from "./pages/authors/Authors";
 import AuthorsList from "./pages/authorsList/AuthorsList";
@@ -13,25 +14,14 @@ import Cart from "./pages/cart/Cart";
 import Contact from "./pages/contact/Contact";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import User from "./pages/user/User";
 import Orders from "./pages/orders/Orders";
 import Page404 from "./pages/page404/Page404";
 import Products from "./pages/products/Products";
 import ProductsList from "./pages/productsList/ProductsList";
 import Promotions from "./pages/promotions/Promotions";
+import User from "./pages/user/User";
 import WishList from "./pages/wishlist/WishList";
 import BookDataService from "./services/BookDataService";
-import Container from "react-bootstrap/Container";
-import { Link } from "react-router-dom";
-import Nav from "react-bootstrap/Nav";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCartShopping,
-  faHeart,
-  faList,
-} from "@fortawesome/free-solid-svg-icons";
-import Header from "./components/Header/Header";
-import PromotionContent from "./components/Promotion/promotion-content";
 
 export const Context = React.createContext();
 

@@ -8,7 +8,8 @@ var generatePassword = (
     .map((x) => characters[x % characters.length])
     .join("");
 
-export const url = "https://fingertips.com.pk/api/paige";
+// export const url = "https://fingertips.com.pk/api/paige";
+export const url = "https://babook17-6it6ur392-seisr.vercel.app/";
 
 export const is_authorzied = async (token = null) => {
   if (!token) {

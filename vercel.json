@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "https://bookstoreserverapi.vercel.app/:path*",
+      "destination": "https://bookstoreserverapi.vercel.app/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}
